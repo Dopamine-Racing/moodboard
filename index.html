@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dopamine Racing — Shell Mood Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-elevated: #1c1c1c;
+    --border: #242424;
+    --border-strong: #383838;
+    --text-primary: #e8e8e8;
+    --text-secondary: #8a8a8a;
+    --text-tertiary: #5a5a5a;
+    --accent: #FACC15;
+    --accent-hover: #FDE047;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 96px;
+  }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-lg) var(--space-xl);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .wordmark {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 6px 0 0;
+    letter-spacing: -0.02em;
+  }
+
+  .title-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 4px 0 0;
+    max-width: 480px;
+  }
+
+  /* User bar */
+  .user-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-size: 12px;
+  }
+
+  .user-bar label {
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 10px;
+  }
+
+  .user-bar select {
+    font-family: inherit;
+    font-size: 13px;
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 7px 12px;
+    border-radius: 0;
+    outline: none;
+  }
+
+  .user-bar select:focus { border-color: var(--accent); }
+
+  .pick-count {
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .pick-count strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Filter bar */
+  .filters {
+    padding: var(--space-md) var(--space-xl);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--surface);
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .filter-label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 2px;
+  }
+
+  .filter-btn {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-strong);
+    padding: 6px 12px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+  }
+
+  .filter-btn.active {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: var(--space-xl);
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 13px;
+  }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: var(--space-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    min-height: 152px;
+  }
+
+  .card:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-elevated);
+  }
+
+  .card.picked {
+    border-color: var(--accent);
+    background: var(--surface-elevated);
+  }
+
+  .card-pick {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: transparent;
+    transition: all 0.1s ease;
+  }
+
+  .card.picked .card-pick {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  .card-code {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .card.shortlisted .card-code::after {
+    content: " ★ SHORTLIST";
+    color: var(--accent);
+    margin-left: 6px;
+  }
+
+  .card-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.3;
+    padding-right: 28px;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+  }
+
+  .tag {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 7px;
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .tag.aesthetic-origin { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
+  .tag.aesthetic-bn { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
+  .tag.aesthetic-pandem { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
+  .tag.aesthetic-oem { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
+
+  /* Action bar (sticky at bottom) */
+  .actions {
+    position: fixed;
+    bottom: var(--space-md);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-strong);
+    padding: 10px 14px;
+    display: flex;
+    gap: var(--space-sm);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    z-index: 50;
+  }
+
+  .btn {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 9px 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.1s ease;
+    border-radius: 0;
+  }
+
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn:disabled:hover { border-color: var(--border-strong); color: var(--text-primary); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: var(--bg);
+    border-color: var(--accent-hover);
+  }
+
+  /* Modal */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--space-lg);
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .modal-backdrop.open { display: flex; }
+
+  .modal {
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-strong);
+    padding: var(--space-lg);
+    max-width: 680px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .modal h2 {
+    margin: 0 0 var(--space-sm);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+  }
+
+  .modal p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin: 0 0 var(--space-md);
+  }
+
+  .modal textarea, .modal input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 12px;
+    background: var(--bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 10px;
+    margin-bottom: var(--space-md);
+    word-break: break-all;
+    border-radius: 0;
+    outline: none;
+  }
+  .modal textarea { min-height: 76px; resize: vertical; }
+  .modal textarea:focus, .modal input:focus { border-color: var(--accent); }
+
+  .modal-actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+    margin-top: var(--space-md);
+  }
+
+  /* Compare view */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    font-size: 12px;
+  }
+
+  .compare-col h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-tertiary);
+    margin: 0 0 var(--space-sm);
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-col .name { color: var(--accent); font-weight: 600; }
+
+  .compare-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .compare-col li {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.3;
+  }
+
+  .compare-col li .li-code {
+    font-size: 9px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.1em;
+  }
+
+  .compare-col li.match {
+    background: rgba(250, 204, 21, 0.08);
+    border-left: 2px solid var(--accent);
+    padding-left: 6px;
+  }
+
+  .compare-col .empty {
+    color: var(--text-tertiary);
+    font-style: italic;
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  /* Footer hint */
+  .footer-hint {
+    padding: var(--space-md) var(--space-xl) var(--space-lg);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* Notice banner (for when someone arrives via a shared URL) */
+  .notice {
+    background: rgba(250, 204, 21, 0.08);
+    border-bottom: 1px solid rgba(250, 204, 21, 0.3);
+    padding: var(--space-sm) var(--space-xl);
+    font-size: 12px;
+    color: var(--accent);
+    display: none;
+  }
+  .notice.show { display: block; }
+
+  @media (max-width: 720px) {
+    .header { padding: var(--space-md); }
+    .filters { padding: var(--space-md); gap: var(--space-md); }
+    .grid { padding: var(--space-md); }
+    .footer-hint { padding: var(--space-md); }
+    .compare-grid { grid-template-columns: 1fr; }
+    .title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <div class="wordmark">Dopamine Racing</div>
+      <h1 class="title">Shell mood board</h1>
+      <p class="title-meta">Drift shortlist. Mid-aggressive to high-art extreme widebody. Nissan, Mazda, Toyota.</p>
+    </div>
+    <div class="user-bar">
+      <label for="user">Who are you</label>
+      <select id="user">
+        <option value="">— pick name —</option>
+        <option value="gavin">Gavin</option>
+        <option value="shane">Shane</option>
+      </select>
+      <span class="pick-count"><strong id="pickCount">0</strong> picked</span>
+    </div>
+  </header>
+
+  <div class="notice" id="notice"></div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Marque</span>
+      <div class="filter-buttons" data-group="marque">
+        <button class="filter-btn active" data-value="">All</button>
+        <button class="filter-btn" data-value="Nissan">Nissan</button>
+        <button class="filter-btn" data-value="Mazda">Mazda</button>
+        <button class="filter-btn" data-value="Toyota">Toyota</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Aesthetic</span>
+      <div class="filter-buttons" data-group="aesthetic">
+        <button class="filter-btn active" data-value="">All</button>
+        <button class="filter-btn" data-value="Origin Labo">Origin Labo</button>
+        <button class="filter-btn" data-value="BN Sports">BN Sports</button>
+        <button class="filter-btn" data-value="Pandem">Pandem</button>
+        <button class="filter-btn" data-value="OEM+">OEM+</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">View</span>
+      <div class="filter-buttons" data-group="view">
+        <button class="filter-btn active" data-value="all">All</button>
+        <button class="filter-btn" data-value="picked">My picks</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="actions">
+    <button class="btn" id="resetBtn" title="Clear all my picks">Reset</button>
+    <button class="btn" id="saveBtn">Save my picks</button>
+    <button class="btn btn-primary" id="compareBtn">Compare</button>
+  </div>
+
+  <div class="footer-hint">
+    Tap a card to pick. Picks save in your browser. Hit "Save my picks" for a URL you can send to the other person.<br>
+    To compare, paste their URL into the Compare dialog — you'll see both lists side-by-side with overlaps highlighted.
+  </div>
+
+  <!-- Save modal -->
+  <div class="modal-backdrop" id="saveModal">
+    <div class="modal">
+      <h2>Save my picks</h2>
+      <p>Copy this URL and send it to the other person. It encodes who you are and which shells you've picked.</p>
+      <textarea readonly id="saveUrl"></textarea>
+      <div class="modal-actions">
+        <button class="btn" id="saveCopyBtn">Copy URL</button>
+        <button class="btn" data-close="saveModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare modal -->
+  <div class="modal-backdrop" id="compareModal">
+    <div class="modal">
+      <h2>Compare picks</h2>
+      <p>Paste the other person's URL (the one they got from "Save my picks").</p>
+      <input type="text" id="compareInput" placeholder="https://…#u=shane&p=PAB-3148.PAB-3147">
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="runCompareBtn">Compare</button>
+        <button class="btn" data-close="compareModal">Close</button>
+      </div>
+      <div id="compareResult"></div>
+    </div>
+  </div>
+
+<script>
+// === DATA ===
+// 52 shells across Nissan, Mazda, Toyota. Aesthetic tiers: Origin Labo, BN Sports (incl. BLS), Pandem, OEM+.
+const SHELLS = [
+  // NISSAN — Origin Labo (high-art extreme widebody)
+  { code: 'PAB-3195', name: 'S15 Silvia "Raijin"', marque: 'Nissan', aesthetic: 'Origin Labo', era: '2000s', mfr: 'Pandora RC', note: 'Thunder God — signature design' },
+  { code: 'PAB-3194', name: 'RPS13 180SX "Fujin"', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Wind God — paired with Raijin' },
+  { code: 'PAB-3192', name: 'S14 Silvia early (Zenki)', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3172', name: 'S14 Silvia late (Kouki)', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3163', name: '240SX ONE-VIA', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3151', name: 'S13 Silvia', marque: 'Nissan', aesthetic: 'Origin Labo', era: '80s-90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3148', name: 'S15 Silvia', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Pre-Raijin variant' },
+  { code: 'PAB-3147', name: 'RPS13 180SX', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC', note: 'Pre-Fujin variant' },
+
+  // NISSAN — BN Sports / BLS (mid-aggressive)
+  { code: 'PAB-3238', name: 'ER34 Skyline 4Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'New release — March 2026' },
+  { code: 'PAB-3224', name: 'HCR32 R32 Skyline 4Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3213', name: 'S15 Silvia BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'Long-stretch BLS variant' },
+  { code: 'PAB-3209', name: 'S14 Silvia late BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3207', name: 'R35 GT-R BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC' },
+  { code: 'PAB-3186', name: 'S13 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3185', name: 'S15 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3184', name: 'RPS13 180SX', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3166', name: 'ECR33 R33 Skyline 2Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3165', name: 'S14 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3162', name: 'S13 SILEIGHTY (Sil80)', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3161', name: 'HCR32 R32 Skyline 2Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
+
+  // NISSAN — Pandem / Race-driver branded (extreme widebody)
+  { code: 'AD-HB1-1B', name: 'R32 GT-R Pandem Type R', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
+  { code: 'AD-HB10A', name: 'S13 Pandem V3 195mm', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC', note: 'RocketBunny widebody' },
+  { code: 'AD-RB2A', name: 'S13 Pandem V3 (247mm WB)', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
+  { code: 'AD-HB7A', name: 'S15 Silvia Miki Takagi', marque: 'Nissan', aesthetic: 'Pandem', era: '90s-2000s', mfr: 'Addiction RC', note: 'Race driver signature' },
+  { code: 'AD-HB17', name: 'S13 Silvia Spirit Rei', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
+  { code: 'AD-HB22', name: 'S14 Kouki Takuzo Yokota', marque: 'Nissan', aesthetic: 'Pandem', era: '90s', mfr: 'Addiction RC', note: 'Street Ver' },
+
+  // MAZDA
+  { code: 'PAB-3198', name: 'RX-7 FD3S', marque: 'Mazda', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'FCB-198C', name: 'RX-7 FD3S BLS Carbon', marque: 'Mazda', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'Carbon style variant' },
+  { code: 'PAB-3160', name: 'RX-7 FC3S', marque: 'Mazda', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3121', name: 'Savanna RX-7 FC3S', marque: 'Mazda', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC', note: 'Earlier catalogue, accurate proportions' },
+
+  // TOYOTA — Origin Labo
+  { code: 'PAB-3215', name: 'Toyota 86 ZN6 DRIFT LINE', marque: 'Toyota', aesthetic: 'Origin Labo', era: '2010s', mfr: 'Pandora RC' },
+  { code: 'PAB-3156', name: 'Toyota Chaser JZX100', marque: 'Toyota', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Iconic 4-door widebody' },
+
+  // TOYOTA — BN Sports / BLS
+  { code: 'PAB-3225', name: 'Toyota Cresta JZX100 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3221', name: 'Toyota Mark2 JZX110', marque: 'Toyota', aesthetic: 'BN Sports', era: '2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3218', name: 'Toyota GR86 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC', shortlisted: true },
+  { code: 'PAB-3212', name: 'Toyota GR Supra A90 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC' },
+  { code: 'PAB-3201', name: 'Toyota Mark2 JZX100', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3200', name: 'Toyota Aristo JZS161', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3199', name: 'Toyota 86 ZN6', marque: 'Toyota', aesthetic: 'BN Sports', era: '2010s', mfr: 'Pandora RC', shortlisted: true },
+  { code: 'PAB-3197', name: 'Toyota Chaser JZX100', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+  { code: 'PAB-3173', name: 'Toyota Mark2 JZX90', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
+  { code: 'PAB-3167', name: 'Toyota Altezza', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
+
+  // TOYOTA — OEM+ / AE86 family
+  { code: 'PAB-3135', name: 'Toyota Supra Mk4 JZA80', marque: 'Toyota', aesthetic: 'OEM+', era: '90s', mfr: 'Pandora RC', shortlisted: true, note: 'Clean OEM+ shape, not widebody' },
+  { code: 'PABG-3067', name: 'AE86 Trueno N2', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC', note: 'N2 race-spec' },
+  { code: 'PAB-3168', name: 'AE86 Corolla Levin 2DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
+  { code: 'PAB-3176', name: 'AE86 Sprinter Trueno 2DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
+  { code: 'PAB-3177', name: 'AE86 Corolla Levin 3DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
+  { code: 'PAB-3178', name: 'AE86 Sprinter Trueno 3DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
+
+  // TOYOTA — Pandem
+  { code: 'AD-RB17', name: 'GR86 Naoki Nakamura', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC', note: 'Race driver Street Ver' },
+  { code: 'AD-RB4-1A', name: 'GR Supra Pandem', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC' },
+  { code: 'AD-RB11', name: 'GR Corolla Rocket Bunny', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC' },
+  { code: 'AD-RB5-1A', name: 'GR Yaris', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC', note: 'Rally-adjacent' },
+];
+
+// === STATE ===
+const state = {
+  user: '',
+  picks: { gavin: new Set(), shane: new Set() },
+  filters: { marque: '', aesthetic: '', view: 'all' },
+};
+
+const STORAGE_KEY = 'dopamine-moodboard-v1';
+
+// === STORAGE ===
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    state.user = data.user || '';
+    state.picks.gavin = new Set(data.picks?.gavin || []);
+    state.picks.shane = new Set(data.picks?.shane || []);
+  } catch (e) { /* fresh start */ }
+}
+
+function saveToStorage() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    user: state.user,
+    picks: {
+      gavin: [...state.picks.gavin],
+      shane: [...state.picks.shane],
+    },
+  }));
+}
+
+// === URL STATE ===
+function parseHash(hashStr) {
+  const h = (hashStr || window.location.hash).replace(/^#/, '');
+  if (!h) return null;
+  const params = new URLSearchParams(h);
+  const user = params.get('u');
+  const picksStr = params.get('p');
+  if (!user || !picksStr) return null;
+  return { user, picks: picksStr.split('.').filter(Boolean) };
+}
+
+function parseSharedUrl(url) {
+  try {
+    const u = new URL(url.trim());
+    return parseHash(u.hash);
+  } catch (e) {
+    // Maybe they pasted just the hash portion
+    if (url.includes('#')) return parseHash(url.split('#')[1]);
+    return parseHash(url);
+  }
+}
+
+function importFromHash() {
+  const incoming = parseHash();
+  if (incoming && (incoming.user === 'gavin' || incoming.user === 'shane')) {
+    state.picks[incoming.user] = new Set(incoming.picks);
+    saveToStorage();
+    showNotice(`Loaded ${incoming.user[0].toUpperCase() + incoming.user.slice(1)}'s ${incoming.picks.length} picks from URL.`);
+  }
+}
+
+function makeShareUrl() {
+  if (!state.user) return '';
+  const userPicks = [...state.picks[state.user]];
+  const base = window.location.href.split('#')[0];
+  return `${base}#u=${state.user}&p=${userPicks.join('.')}`;
+}
+
+// === RENDERING ===
+function aestheticClass(aes) {
+  if (aes === 'Origin Labo') return 'aesthetic-origin';
+  if (aes === 'BN Sports') return 'aesthetic-bn';
+  if (aes === 'Pandem') return 'aesthetic-pandem';
+  if (aes === 'OEM+') return 'aesthetic-oem';
+  return '';
+}
+
+function matchesFilters(shell) {
+  const f = state.filters;
+  if (f.marque && shell.marque !== f.marque) return false;
+  if (f.aesthetic && shell.aesthetic !== f.aesthetic) return false;
+  if (f.view === 'picked') {
+    if (!state.user) return false;
+    if (!state.picks[state.user].has(shell.code)) return false;
+  }
+  return true;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  const filtered = SHELLS.filter(matchesFilters);
+
+  if (filtered.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    if (state.filters.view === 'picked' && !state.user) {
+      empty.textContent = 'Pick a name first (top right) to see your picks.';
+    } else if (state.filters.view === 'picked') {
+      empty.textContent = 'No picks yet. Switch view to "All" and tap some cards.';
+    } else {
+      empty.textContent = 'No shells match these filters.';
+    }
+    grid.appendChild(empty);
+    return;
+  }
+
+  for (const shell of filtered) {
+    const picked = state.user && state.picks[state.user].has(shell.code);
+    const card = document.createElement('div');
+    card.className = `card ${picked ? 'picked' : ''} ${shell.shortlisted ? 'shortlisted' : ''}`;
+    card.dataset.code = shell.code;
+    card.innerHTML = `
+      <div class="card-pick">${picked ? '✓' : ''}</div>
+      <div class="card-code">${shell.code}</div>
+      <div class="card-name">${shell.name}</div>
+      ${shell.note ? `<div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">${shell.note}</div>` : ''}
+      <div class="card-tags">
+        <span class="tag">${shell.marque}</span>
+        <span class="tag ${aestheticClass(shell.aesthetic)}">${shell.aesthetic}</span>
+        <span class="tag">${shell.era}</span>
+        <span class="tag">${shell.mfr}</span>
+      </div>
+    `;
+    card.addEventListener('click', () => toggleCard(shell.code));
+    grid.appendChild(card);
+  }
+}
+
+function renderPickCount() {
+  const el = document.getElementById('pickCount');
+  if (!state.user) {
+    el.textContent = '0';
+    return;
+  }
+  el.textContent = state.picks[state.user].size;
+}
+
+function showNotice(msg) {
+  const n = document.getElementById('notice');
+  n.textContent = msg;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 5000);
+}
+
+// === INTERACTIONS ===
+function toggleCard(code) {
+  if (!state.user) {
+    alert('Pick a name first (top right).');
+    return;
+  }
+  const set = state.picks[state.user];
+  if (set.has(code)) set.delete(code);
+  else set.add(code);
+  saveToStorage();
+  renderGrid();
+  renderPickCount();
+}
+
+function setFilter(group, value) {
+  state.filters[group] = value;
+  // update button states
+  document.querySelectorAll(`.filter-buttons[data-group="${group}"] .filter-btn`).forEach(b => {
+    b.classList.toggle('active', b.dataset.value === value);
+  });
+  renderGrid();
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+function onSave() {
+  if (!state.user) {
+    alert('Pick a name first (top right).');
+    return;
+  }
+  if (state.picks[state.user].size === 0) {
+    alert('You haven\'t picked anything yet.');
+    return;
+  }
+  const url = makeShareUrl();
+  document.getElementById('saveUrl').value = url;
+  openModal('saveModal');
+}
+
+function onReset() {
+  if (!state.user) return;
+  if (!confirm(`Clear all of ${state.user}'s picks?`)) return;
+  state.picks[state.user] = new Set();
+  saveToStorage();
+  renderGrid();
+  renderPickCount();
+}
+
+function copySaveUrl() {
+  const ta = document.getElementById('saveUrl');
+  ta.select();
+  try {
+    navigator.clipboard.writeText(ta.value);
+    const btn = document.getElementById('saveCopyBtn');
+    const orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  } catch (e) {
+    document.execCommand('copy');
+  }
+}
+
+function onCompare() {
+  document.getElementById('compareResult').innerHTML = '';
+  document.getElementById('compareInput').value = '';
+  openModal('compareModal');
+}
+
+function runCompare() {
+  const input = document.getElementById('compareInput').value.trim();
+  if (!input) {
+    document.getElementById('compareResult').innerHTML = '<p style="color: var(--text-tertiary); margin-top: 16px; font-size: 12px;">Paste a URL to compare.</p>';
+    return;
+  }
+  const other = parseSharedUrl(input);
+  if (!other) {
+    document.getElementById('compareResult').innerHTML = '<p style="color: #ef4444; margin-top: 16px; font-size: 12px;">Couldn\'t parse that URL. It should contain something like #u=shane&p=PAB-3148.PAB-3147</p>';
+    return;
+  }
+
+  // figure out my picks
+  const myUser = state.user;
+  const mySet = myUser ? state.picks[myUser] : new Set();
+  const theirSet = new Set(other.picks);
+  const overlap = new Set([...mySet].filter(c => theirSet.has(c)));
+
+  const renderList = (set, otherSet) => {
+    if (set.size === 0) return '<p class="empty">No picks.</p>';
+    const arr = [...set].map(code => {
+      const shell = SHELLS.find(s => s.code === code);
+      const isMatch = otherSet.has(code);
+      if (!shell) return `<li class="${isMatch ? 'match' : ''}"><span class="li-code">${code}</span><br>(unknown)</li>`;
+      return `<li class="${isMatch ? 'match' : ''}">${shell.name}<br><span class="li-code">${shell.code} · ${shell.aesthetic}</span></li>`;
+    });
+    return `<ul>${arr.join('')}</ul>`;
+  };
+
+  const myLabel = myUser ? myUser[0].toUpperCase() + myUser.slice(1) : 'Me';
+  const theirLabel = other.user[0].toUpperCase() + other.user.slice(1);
+  const overlapList = [...overlap].map(code => {
+    const shell = SHELLS.find(s => s.code === code);
+    return `<li class="match">${shell ? shell.name : code}<br><span class="li-code">${code}</span></li>`;
+  }).join('');
+
+  document.getElementById('compareResult').innerHTML = `
+    <div class="compare-grid">
+      <div class="compare-col">
+        <h3><span class="name">${myLabel}</span> · ${mySet.size}</h3>
+        ${renderList(mySet, theirSet)}
+      </div>
+      <div class="compare-col">
+        <h3><span class="name">Both</span> · ${overlap.size}</h3>
+        ${overlap.size ? `<ul>${overlapList}</ul>` : '<p class="empty">No overlap yet.</p>'}
+      </div>
+      <div class="compare-col">
+        <h3><span class="name">${theirLabel}</span> · ${theirSet.size}</h3>
+        ${renderList(theirSet, mySet)}
+      </div>
+    </div>
+  `;
+}
+
+// === SETUP ===
+function setup() {
+  // user select
+  const userSelect = document.getElementById('user');
+  userSelect.addEventListener('change', (e) => {
+    state.user = e.target.value;
+    saveToStorage();
+    renderGrid();
+    renderPickCount();
+  });
+  userSelect.value = state.user;
+
+  // filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.parentElement.dataset.group;
+      const value = btn.dataset.value;
+      setFilter(group, value);
+    });
+  });
+
+  // action buttons
+  document.getElementById('saveBtn').addEventListener('click', onSave);
+  document.getElementById('compareBtn').addEventListener('click', onCompare);
+  document.getElementById('resetBtn').addEventListener('click', onReset);
+  document.getElementById('saveCopyBtn').addEventListener('click', copySaveUrl);
+  document.getElementById('runCompareBtn').addEventListener('click', runCompare);
+
+  // modal close
+  document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', () => closeModal(btn.dataset.close));
+  });
+
+  // close modal on backdrop click
+  document.querySelectorAll('.modal-backdrop').forEach(bd => {
+    bd.addEventListener('click', (e) => {
+      if (e.target === bd) bd.classList.remove('open');
+    });
+  });
+}
+
+loadFromStorage();
+importFromHash();
+setup();
+renderGrid();
+renderPickCount();
+</script>
+</body>
+</html>
