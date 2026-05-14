@@ -197,6 +197,8 @@
     flex-direction: column;
     gap: var(--space-sm);
     min-height: 152px;
+    padding-top: var(--space-sm);
+    padding-top: var(--space-sm);
   }
 
   .card:hover {
@@ -452,6 +454,66 @@
   }
   .notice.show { display: block; }
 
+
+  /* Shell image */
+  .card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+    transition: transform 0.2s ease;
+  }
+  .card:hover .card-image img {
+    transform: scale(1.03);
+  }
+  .card-image-fallback {
+    color: var(--text-tertiary);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+
+  /* Shell image */
+  .card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+    transition: transform 0.2s ease;
+  }
+  .card:hover .card-image img {
+    transform: scale(1.03);
+  }
+  .card-image-fallback {
+    color: var(--text-tertiary);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
   @media (max-width: 720px) {
     .header { padding: var(--space-md); }
     .filters { padding: var(--space-md); gap: var(--space-md); }
@@ -460,6 +522,120 @@
     .compare-grid { grid-template-columns: 1fr; }
     .title { font-size: 18px; }
   }
+
+  /* V3 expanded filter UI */
+  .filters { padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); border-bottom: 1px solid var(--border); }
+  .filter-row { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: flex-start; }
+  .filter-row-top { gap: var(--space-md); }
+  .filter-search { flex: 1; min-width: 240px; }
+  .filter-search input { width: 100%; background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; }
+  .filter-search input:focus { border-color: var(--accent); }
+  .filters select { background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; min-width: 200px; max-width: 280px; cursor: pointer; }
+  .filters select:focus { border-color: var(--accent); }
+  .filter-count #resultCount { color: var(--accent); font-weight: 500; font-size: 13px; }
+
+  /* Tag pills for painted/carbon/b-stock/limited */
+  .tag-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; }
+  .tag-painted { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+  .tag-carbon  { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
+  .tag-b-stock { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+  .tag-limited { background: rgba(250, 204, 21, 0.15); color: var(--accent); }
+  .tag-preorder { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+
+  .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
+  .card { position: relative; }
+
+  /* Shortlist star indicator */
+  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
+
+  /* Aesthetic colour tags — expanded set */
+  .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
+  .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
+  .tag.aes-Pandem-Rocket-Bunny    { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
+  .tag.aes-Liberty-Walk           { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
+  .tag.aes-DMAX                   { color: #34d399; border-color: rgba(52, 211, 153, 0.4); }
+  .tag.aes-Driver-Spec            { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
+  .tag.aes-Tuner-Spec             { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
+  .tag.aes-Widebody-Custom        { color: #67e8f9; border-color: rgba(103, 232, 249, 0.4); }
+  .tag.aes-OEM-Stock              { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
+  .tag.aes-VIP-Bippu              { color: #d4d4d8; border-color: rgba(212, 212, 216, 0.4); }
+
+
+  /* V3 expanded filter UI */
+  .filters { padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); border-bottom: 1px solid var(--border); }
+  .filter-row { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: flex-start; }
+  .filter-row-top { gap: var(--space-md); }
+  .filter-search { flex: 1; min-width: 240px; }
+  .filter-search input { width: 100%; background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; }
+  .filter-search input:focus { border-color: var(--accent); }
+  .filters select { background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; min-width: 200px; max-width: 280px; cursor: pointer; }
+  .filters select:focus { border-color: var(--accent); }
+  .filter-count #resultCount { color: var(--accent); font-weight: 500; font-size: 13px; }
+
+  /* Tag pills for painted/carbon/b-stock/limited */
+  .tag-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; }
+  .tag-painted { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+  .tag-carbon  { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
+  .tag-b-stock { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+  .tag-limited { background: rgba(250, 204, 21, 0.15); color: var(--accent); }
+  .tag-preorder { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+
+  .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
+  .card { position: relative; }
+
+  /* Shortlist star indicator */
+  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
+
+  /* Aesthetic colour tags — expanded set */
+  .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
+  .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
+  .tag.aes-Pandem-Rocket-Bunny    { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
+  .tag.aes-Liberty-Walk           { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
+  .tag.aes-DMAX                   { color: #34d399; border-color: rgba(52, 211, 153, 0.4); }
+  .tag.aes-Driver-Spec            { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
+  .tag.aes-Tuner-Spec             { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
+  .tag.aes-Widebody-Custom        { color: #67e8f9; border-color: rgba(103, 232, 249, 0.4); }
+  .tag.aes-OEM-Stock              { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
+  .tag.aes-VIP-Bippu              { color: #d4d4d8; border-color: rgba(212, 212, 216, 0.4); }
+
+
+  /* V3 expanded filter UI */
+  .filters { padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); border-bottom: 1px solid var(--border); }
+  .filter-row { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: flex-start; }
+  .filter-row-top { gap: var(--space-md); }
+  .filter-search { flex: 1; min-width: 240px; }
+  .filter-search input { width: 100%; background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; }
+  .filter-search input:focus { border-color: var(--accent); }
+  .filters select { background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; min-width: 200px; max-width: 280px; cursor: pointer; }
+  .filters select:focus { border-color: var(--accent); }
+  .filter-count #resultCount { color: var(--accent); font-weight: 500; font-size: 13px; }
+
+  /* Tag pills for painted/carbon/b-stock/limited */
+  .tag-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; }
+  .tag-painted { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+  .tag-carbon  { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
+  .tag-b-stock { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+  .tag-limited { background: rgba(250, 204, 21, 0.15); color: var(--accent); }
+  .tag-preorder { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+
+  .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
+  .card { position: relative; }
+
+  /* Shortlist star indicator */
+  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
+
+  /* Aesthetic colour tags — expanded set */
+  .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
+  .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
+  .tag.aes-Pandem-Rocket-Bunny    { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
+  .tag.aes-Liberty-Walk           { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
+  .tag.aes-DMAX                   { color: #34d399; border-color: rgba(52, 211, 153, 0.4); }
+  .tag.aes-Driver-Spec            { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
+  .tag.aes-Tuner-Spec             { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
+  .tag.aes-Widebody-Custom        { color: #67e8f9; border-color: rgba(103, 232, 249, 0.4); }
+  .tag.aes-OEM-Stock              { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
+  .tag.aes-VIP-Bippu              { color: #d4d4d8; border-color: rgba(212, 212, 216, 0.4); }
+
 </style>
 </head>
 <body>
@@ -467,7 +643,7 @@
     <div>
       <div class="wordmark">Dopamine Racing</div>
       <h1 class="title">Shell mood board</h1>
-      <p class="title-meta">Drift shortlist. Mid-aggressive to high-art extreme widebody. Nissan, Mazda, Toyota.</p>
+      <p class="title-meta">Full SuperG catalogue — 186 shells across 23 marques and 20 manufacturers. Tap to pick. Search and filter to navigate.</p>
     </div>
     <div class="user-bar">
       <label for="user">Who are you</label>
@@ -483,30 +659,109 @@
   <div class="notice" id="notice"></div>
 
   <div class="filters">
-    <div class="filter-group">
-      <span class="filter-label">Marque</span>
-      <div class="filter-buttons" data-group="marque">
-        <button class="filter-btn active" data-value="">All</button>
-        <button class="filter-btn" data-value="Nissan">Nissan</button>
-        <button class="filter-btn" data-value="Mazda">Mazda</button>
-        <button class="filter-btn" data-value="Toyota">Toyota</button>
+    <div class="filter-row filter-row-top">
+      <div class="filter-group filter-search">
+        <span class="filter-label">Search</span>
+        <input type="text" id="searchInput" placeholder="Code, name, marque, mfr…" />
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Marque</span>
+        <select id="marqueSelect" data-group="marque">
+          <option value="">All marques (186)</option>
+          <option value="Acura">Acura</option>
+          <option value="Audi">Audi</option>
+          <option value="BMW">BMW</option>
+          <option value="Chevy">Chevy</option>
+          <option value="Datsun">Datsun</option>
+          <option value="Dodge">Dodge</option>
+          <option value="Ford">Ford</option>
+          <option value="Honda">Honda</option>
+          <option value="Infiniti">Infiniti</option>
+          <option value="Lexus">Lexus</option>
+          <option value="Mazda">Mazda</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Mini">Mini</option>
+          <option value="Mitsubishi">Mitsubishi</option>
+          <option value="Nissan">Nissan</option>
+          <option value="Plymouth">Plymouth</option>
+          <option value="Pontiac">Pontiac</option>
+          <option value="Porsche">Porsche</option>
+          <option value="Scion">Scion</option>
+          <option value="Subaru">Subaru</option>
+          <option value="Tesla">Tesla</option>
+          <option value="Toyota">Toyota</option>
+          <option value="VW">VW</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Manufacturer</span>
+        <select id="mfrSelect" data-group="mfr">
+          <option value="">All manufacturers</option>
+          <option value="24K / RC ARLOS">24K / RC ARLOS</option>
+          <option value="ABC Hobby">ABC Hobby</option>
+          <option value="APlastics">APlastics</option>
+          <option value="Addiction RC">Addiction RC</option>
+          <option value="Associated">Associated</option>
+          <option value="D-Like">D-Like</option>
+          <option value="Exceed RC">Exceed RC</option>
+          <option value="HPI">HPI</option>
+          <option value="Killerbody">Killerbody</option>
+          <option value="MST">MST</option>
+          <option value="Overdose">Overdose</option>
+          <option value="Pandora RC">Pandora RC</option>
+          <option value="Quality RC">Quality RC</option>
+          <option value="R31World">R31World</option>
+          <option value="Reve D">Reve D</option>
+          <option value="Shibata">Shibata</option>
+          <option value="Tamiya">Tamiya</option>
+          <option value="Tetsujin">Tetsujin</option>
+          <option value="Topline">Topline</option>
+          <option value="Yokomo">Yokomo</option>
+        </select>
       </div>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">Aesthetic</span>
-      <div class="filter-buttons" data-group="aesthetic">
-        <button class="filter-btn active" data-value="">All</button>
-        <button class="filter-btn" data-value="Origin Labo">Origin Labo</button>
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Aesthetic</span>
+        <div class="filter-buttons" data-group="aesthetic">
+          <button class="filter-btn active" data-value="">All</button>
         <button class="filter-btn" data-value="BN Sports">BN Sports</button>
-        <button class="filter-btn" data-value="Pandem">Pandem</button>
-        <button class="filter-btn" data-value="OEM+">OEM+</button>
+        <button class="filter-btn" data-value="DMAX">DMAX</button>
+        <button class="filter-btn" data-value="Driver Spec">Driver Spec</button>
+        <button class="filter-btn" data-value="Liberty Walk">Liberty Walk</button>
+        <button class="filter-btn" data-value="OEM / Stock">OEM / Stock</button>
+        <button class="filter-btn" data-value="Origin Labo">Origin Labo</button>
+        <button class="filter-btn" data-value="Pandem / Rocket Bunny">Pandem / Rocket Bunny</button>
+        <button class="filter-btn" data-value="Tuner Spec">Tuner Spec</button>
+        <button class="filter-btn" data-value="VIP / Bippu">VIP / Bippu</button>
+        <button class="filter-btn" data-value="Widebody (Custom)">Widebody (Custom)</button>
+        </div>
       </div>
     </div>
-    <div class="filter-group">
-      <span class="filter-label">View</span>
-      <div class="filter-buttons" data-group="view">
-        <button class="filter-btn active" data-value="all">All</button>
-        <button class="filter-btn" data-value="picked">My picks</button>
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Era</span>
+        <div class="filter-buttons" data-group="era">
+          <button class="filter-btn active" data-value="">All</button>
+        <button class="filter-btn" data-value="60s / 70s">60s / 70s</button>
+        <button class="filter-btn" data-value="1980s">1980s</button>
+        <button class="filter-btn" data-value="1990s">1990s</button>
+        <button class="filter-btn" data-value="2000s">2000s</button>
+        <button class="filter-btn" data-value="Modern (2010s+)">Modern (2010s+)</button>
+        <button class="filter-btn" data-value="Other">Other</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">View</span>
+        <div class="filter-buttons" data-group="view">
+          <button class="filter-btn active" data-value="all">All</button>
+          <button class="filter-btn" data-value="picked">My picks</button>
+          <button class="filter-btn" data-value="shortlist">Shortlist ★</button>
+        </div>
+      </div>
+      <div class="filter-group filter-count">
+        <span class="filter-label">Showing</span>
+        <span id="resultCount">186 of 186</span>
       </div>
     </div>
   </div>
@@ -553,82 +808,203 @@
 
 <script>
 // === DATA ===
-// 52 shells across Nissan, Mazda, Toyota. Aesthetic tiers: Origin Labo, BN Sports (incl. BLS), Pandem, OEM+.
+// 186 shells across 23 marques, 20 manufacturers, 10 aesthetics.
+// Sourced from supergdrift.com filtered catalogue (Lexus, Skyline, Toyota, Mazda, Nissan, Silvia, Supra, RX-3)
+// + 3 Pandora-only shortlisted shells. Categorisation is heuristic — adjust manually if needed.
 const SHELLS = [
-  // NISSAN — Origin Labo (high-art extreme widebody)
-  { code: 'PAB-3195', name: 'S15 Silvia "Raijin"', marque: 'Nissan', aesthetic: 'Origin Labo', era: '2000s', mfr: 'Pandora RC', note: 'Thunder God — signature design' },
-  { code: 'PAB-3194', name: 'RPS13 180SX "Fujin"', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Wind God — paired with Raijin' },
-  { code: 'PAB-3192', name: 'S14 Silvia early (Zenki)', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3172', name: 'S14 Silvia late (Kouki)', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3163', name: '240SX ONE-VIA', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3151', name: 'S13 Silvia', marque: 'Nissan', aesthetic: 'Origin Labo', era: '80s-90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3148', name: 'S15 Silvia', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Pre-Raijin variant' },
-  { code: 'PAB-3147', name: 'RPS13 180SX', marque: 'Nissan', aesthetic: 'Origin Labo', era: '90s', mfr: 'Pandora RC', note: 'Pre-Fujin variant' },
-
-  // NISSAN — BN Sports / BLS (mid-aggressive)
-  { code: 'PAB-3238', name: 'ER34 Skyline 4Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'New release — March 2026' },
-  { code: 'PAB-3224', name: 'HCR32 R32 Skyline 4Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3213', name: 'S15 Silvia BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'Long-stretch BLS variant' },
-  { code: 'PAB-3209', name: 'S14 Silvia late BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3207', name: 'R35 GT-R BLS', marque: 'Nissan', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC' },
-  { code: 'PAB-3186', name: 'S13 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3185', name: 'S15 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3184', name: 'RPS13 180SX', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3166', name: 'ECR33 R33 Skyline 2Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3165', name: 'S14 Silvia', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3162', name: 'S13 SILEIGHTY (Sil80)', marque: 'Nissan', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3161', name: 'HCR32 R32 Skyline 2Dr', marque: 'Nissan', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
-
-  // NISSAN — Pandem / Race-driver branded (extreme widebody)
-  { code: 'AD-HB1-1B', name: 'R32 GT-R Pandem Type R', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
-  { code: 'AD-HB10A', name: 'S13 Pandem V3 195mm', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC', note: 'RocketBunny widebody' },
-  { code: 'AD-RB2A', name: 'S13 Pandem V3 (247mm WB)', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
-  { code: 'AD-HB7A', name: 'S15 Silvia Miki Takagi', marque: 'Nissan', aesthetic: 'Pandem', era: '90s-2000s', mfr: 'Addiction RC', note: 'Race driver signature' },
-  { code: 'AD-HB17', name: 'S13 Silvia Spirit Rei', marque: 'Nissan', aesthetic: 'Pandem', era: '80s-90s', mfr: 'Addiction RC' },
-  { code: 'AD-HB22', name: 'S14 Kouki Takuzo Yokota', marque: 'Nissan', aesthetic: 'Pandem', era: '90s', mfr: 'Addiction RC', note: 'Street Ver' },
-
-  // MAZDA
-  { code: 'PAB-3198', name: 'RX-7 FD3S', marque: 'Mazda', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'FCB-198C', name: 'RX-7 FD3S BLS Carbon', marque: 'Mazda', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC', note: 'Carbon style variant' },
-  { code: 'PAB-3160', name: 'RX-7 FC3S', marque: 'Mazda', aesthetic: 'BN Sports', era: '80s-90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3121', name: 'Savanna RX-7 FC3S', marque: 'Mazda', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC', note: 'Earlier catalogue, accurate proportions' },
-
-  // TOYOTA — Origin Labo
-  { code: 'PAB-3215', name: 'Toyota 86 ZN6 DRIFT LINE', marque: 'Toyota', aesthetic: 'Origin Labo', era: '2010s', mfr: 'Pandora RC' },
-  { code: 'PAB-3156', name: 'Toyota Chaser JZX100', marque: 'Toyota', aesthetic: 'Origin Labo', era: '90s-2000s', mfr: 'Pandora RC', note: 'Iconic 4-door widebody' },
-
-  // TOYOTA — BN Sports / BLS
-  { code: 'PAB-3225', name: 'Toyota Cresta JZX100 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3221', name: 'Toyota Mark2 JZX110', marque: 'Toyota', aesthetic: 'BN Sports', era: '2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3218', name: 'Toyota GR86 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC', shortlisted: true },
-  { code: 'PAB-3212', name: 'Toyota GR Supra A90 BLS', marque: 'Toyota', aesthetic: 'BN Sports', era: 'Modern', mfr: 'Pandora RC' },
-  { code: 'PAB-3201', name: 'Toyota Mark2 JZX100', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3200', name: 'Toyota Aristo JZS161', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3199', name: 'Toyota 86 ZN6', marque: 'Toyota', aesthetic: 'BN Sports', era: '2010s', mfr: 'Pandora RC', shortlisted: true },
-  { code: 'PAB-3197', name: 'Toyota Chaser JZX100', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-  { code: 'PAB-3173', name: 'Toyota Mark2 JZX90', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s', mfr: 'Pandora RC' },
-  { code: 'PAB-3167', name: 'Toyota Altezza', marque: 'Toyota', aesthetic: 'BN Sports', era: '90s-2000s', mfr: 'Pandora RC' },
-
-  // TOYOTA — OEM+ / AE86 family
-  { code: 'PAB-3135', name: 'Toyota Supra Mk4 JZA80', marque: 'Toyota', aesthetic: 'OEM+', era: '90s', mfr: 'Pandora RC', shortlisted: true, note: 'Clean OEM+ shape, not widebody' },
-  { code: 'PABG-3067', name: 'AE86 Trueno N2', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC', note: 'N2 race-spec' },
-  { code: 'PAB-3168', name: 'AE86 Corolla Levin 2DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
-  { code: 'PAB-3176', name: 'AE86 Sprinter Trueno 2DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
-  { code: 'PAB-3177', name: 'AE86 Corolla Levin 3DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
-  { code: 'PAB-3178', name: 'AE86 Sprinter Trueno 3DR', marque: 'Toyota', aesthetic: 'OEM+', era: '80s', mfr: 'Pandora RC' },
-
-  // TOYOTA — Pandem
-  { code: 'AD-RB17', name: 'GR86 Naoki Nakamura', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC', note: 'Race driver Street Ver' },
-  { code: 'AD-RB4-1A', name: 'GR Supra Pandem', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC' },
-  { code: 'AD-RB11', name: 'GR Corolla Rocket Bunny', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC' },
-  { code: 'AD-RB5-1A', name: 'GR Yaris', marque: 'Toyota', aesthetic: 'Pandem', era: 'Modern', mfr: 'Addiction RC', note: 'Rally-adjacent' },
+  { code: 'PAB-3199', name: 'Toyota 86 ZN6 BN-Sport BLS Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/B72D2996-75EB-4A9E-B207-614AD63DBD27_700x700.jpg?v=1713543886', shortlisted: true },
+  { code: 'PAB-3218', name: 'Toyota GR86 FRS BRZ BLS BN Sport Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2006_700x700.jpg?v=1765500074', shortlisted: true },
+  { code: 'PAB-3135', name: 'Toyota Supra JZA80 Mk4 Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/2135.jpg?v=1706111915', shortlisted: true },
+  { code: 'QRC-NSX-085', name: 'Honda Acura NSX Body Shell', marque: 'Acura', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/860624_254499210e2c408782ff1a33958ba832mv2.jpg?v=1713506185' },
+  { code: 'QRC-027', name: 'Honda Acura NSX w Pandem Body Shell', marque: 'Acura', mfr: 'Quality RC', aesthetic: 'Pandem / Rocket Bunny', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/431086675_785945946295305_2542058610261753797_n.jpg?v=1713506174' },
+  { code: 'QRC-DC2', name: 'Honda Integra Acura Integra DC2 Type-R Body Shell', marque: 'Acura', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/type-r-333.jpg?v=1713506215' },
+  { code: 'QRC-DC5', name: 'Honda Integra Acura RSX DC5 Type-R Body Shell', marque: 'Acura', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/download_259cdb38-9315-4ddf-90c0-d7d938a8717a.jpg?v=1713506230' },
+  { code: 'AF-LBWKRS7', name: 'Audi RS7 WIDEBODY LIBERTY WALK LBWK Drift Body Shell', marque: 'Audi', mfr: '24K / RC ARLOS', aesthetic: 'Liberty Walk', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/AF-LBWKRS7-1-1100x1100-1.png?v=1717281508' },
+  { code: 'AP-RS6', name: 'Audi Avant RS6 Wagon Body Set', marque: 'Audi', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_5988-1300x867-1.jpg?v=1706118991' },
+  { code: '160086', name: 'Audi E-Tron Vision GT RALLY Electric Body Set', marque: 'Audi', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/160086_160086_04_800_600.jpg?v=1706124037' },
+  { code: 'TAF43016', name: 'HGK WIDEBODY BMW E92 M3 EUROFIGHTER Body Set', marque: 'BMW', mfr: '24K / RC ARLOS', aesthetic: 'Widebody (Custom)', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/hgk-e92-eurofighter-a21699-1100x1100_png.webp?v=1733555160' },
+  { code: 'AP-E31', name: 'BMW E31 M8 Sport Coupe Widebody Body Set', marque: 'BMW', mfr: 'APlastics', aesthetic: 'Widebody (Custom)', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/front-1000x1000.jpg?v=1733600627' },
+  { code: 'AP-39S', name: 'BMW E39 M5 Sedan Body Set', marque: 'BMW', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/AP-39S-1.jpg?v=1733600396' },
+  { code: 'M4-V2', name: 'BMW G82 M4 V2 Coupe Body Set', marque: 'BMW', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/M4-V2-1.jpg?v=1706326215' },
+  { code: 'G87', name: 'BMW G87 M2 Body Set', marque: 'BMW', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/20250103_094415.webp?v=1737772505' },
+  { code: '17548', name: 'BMW M3 E92 Euro 200mm Body Set', marque: 'BMW', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/17548_17548_011pp_800_600.jpg?v=1706122877' },
+  { code: '120261', name: 'PAINTED* BMW E30 Warsteiner WHITE 200mm Body Set', marque: 'BMW', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1980s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/s-l1200-1.jpg?v=1710352169' },
+  { code: '720022', name: 'BMW E30 WIDEBODY PANDEM M3 Coupe Body Set', marque: 'BMW', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-9008.jpg?v=1758233261' },
+  { code: '160425', name: 'CHEVY CHEVROLET CAMARO SS RS 200mm Body Set', marque: 'Chevy', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/160425_160425_01_800_600.jpg?v=1725665839' },
+  { code: 'QRC-IMPALA', name: '1961 CHEVY IMPALA 200mm Body Shell', marque: 'Chevy', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/860624_f87257ee5af54bc3a435d359a2aea8a4_mv2-1.jpg?v=1713492514' },
+  { code: 'QRC-CAMARO', name: '68 CHEVY CAMARO Body Shell', marque: 'Chevy', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/s-l1600_4b1b5f64-db81-42c4-a5d7-c82f0bf19b11.jpg?v=1706121029' },
+  { code: '66188', name: 'Wangan Fairlady Z Nissan Datsun 240z S30 Drift Body Set', marque: 'Datsun', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66188photo004_700x700.jpg?v=1713544078' },
+  { code: 'PAB-3175', name: 'Nissan Datsun Blue Bird 510 Body Set', marque: 'Datsun', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_5790_700x700.jpg?v=1706106114' },
+  { code: 'SRT', name: 'DODGE CHARGER SRT 2022 HELLCAT BODY SET', marque: 'Dodge', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_6581_1_1-1000x1000-1.jpg?v=1706328362' },
+  { code: 'DCL', name: 'Dodge Challenger SRT WIDEBODY PANDEM Body Set', marque: 'Dodge', mfr: 'APlastics', aesthetic: 'Pandem / Rocket Bunny', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_1425-1300x867-1.jpg?v=1713493908' },
+  { code: 'QRC-1968GTS', name: 'Dodge Dart GTS 1968 Body Shell', marque: 'Dodge', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/gts.jpg?v=1714415355' },
+  { code: '31891', name: 'Ford F-150 77 HOONIGAN Hoonitruck Clear Body Set', marque: 'Ford', mfr: 'Associated', aesthetic: 'Driver Spec', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/asc30123__01291.1646783790.jpg?v=1713494145' },
+  { code: '106108', name: '2011 FORD MUSTANG GT 5.0 GT500 200mm Body Set', marque: 'Ford', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/106108_106108_03p_800_600.jpg?v=1706122867' },
+  { code: '113122', name: '2014 FORD MUSTANG GT 5.0 GT500 RTR 200mm Body Set', marque: 'Ford', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/113122_109494_02_800_600.jpg?v=1706122871' },
+  { code: 'QRC-MUSTANG-1968', name: 'VINTAGE 68 FORD MUSTANG Body Shell', marque: 'Ford', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/1248.jpg?v=1706121034' },
+  { code: '47485', name: 'PAINTED* CORSA GREY GT4 MUSTANG BODY SET', marque: 'Ford', mfr: 'Tamiya', aesthetic: 'OEM / Stock', era: 'Other', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/hqdefault.jpg?v=1706123284' },
+  { code: 'PAB-3179', name: 'Honda Civic SI WONDER Body Set', marque: 'Honda', mfr: 'Pandora RC', aesthetic: 'Tuner Spec', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/CIVIC-Si-5.jpg?v=1766519167' },
+  { code: 'QRC-ACCORD', name: 'Honda Accord Inspire CD5 Sedan 4 Door Body Shell', marque: 'Honda', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/277_rd.jpg?v=1714415358' },
+  { code: 'QRC-EG9', name: 'Honda Civic EG9 Sedan 4 Door Body Shell', marque: 'Honda', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/images_efa13160-8a15-46e3-a793-3ff035fb030b.jpg?v=1706120949' },
+  { code: 'QRC-109-EK9', name: 'Honda Civic EK9 Hatchback Type-R B16B Body Shell', marque: 'Honda', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/maxresdefault_79d72799-1748-44d6-a7cf-1b21bde5af94.jpg?v=1706119496' },
+  { code: 'QRC122-FD2', name: 'Honda Civic RR MUGEN TYPE-R FD2 Sedan 4 Door Body Shell', marque: 'Honda', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/sprs106.jpg?v=1706122184' },
+  { code: 'PABG-3072', name: 'Nissan Skyline V35 350GT Infiniti G35 Coupe Body Set', marque: 'Infiniti', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/v35-skyline-02_700x700.webp?v=1755109930' },
+  { code: 'QRC-011', name: 'Nissan Primera Infiniti G20 190mm Body Shell', marque: 'Infiniti', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/860624_cccf8cc1404a46aa9021b8cec89ebf69_mv2_700x700.jpg?v=1771055089' },
+  { code: 'TT-8212', name: 'Nissan Skyline V36 Liberty Walk Infiniti G37 Body Set', marque: 'Infiniti', mfr: 'Tetsujin', aesthetic: 'Liberty Walk', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/TT-7702-1_700x700.jpg?v=1706106747' },
+  { code: 'ABC-67099', name: 'Lexus LS460 LS600h CELSIOR VIP Sedan Body Set', marque: 'Lexus', mfr: 'ABC Hobby', aesthetic: 'VIP / Bippu', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/b_abc_66099_SUB_5.jpg?v=1706120583' },
+  { code: 'OUB-002B', name: 'AERO SPORT Toyota Celsior UCF30 Lexus LS430 Kouki Body Set', marque: 'Lexus', mfr: 'Topline', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/OUB-002B-1.jpg?v=1706330761' },
+  { code: '67143', name: 'Mazda RX-7 FD3S VEILSIDE FORTUNE Body Set', marque: 'Mazda', mfr: 'ABC Hobby', aesthetic: 'Tuner Spec', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/40105_photo01.jpg?v=1706330304' },
+  { code: '67157', name: 'Mazda RX-7 FD3S Zenki Body Set', marque: 'Mazda', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66157-1_700x700.jpg?v=1716328059' },
+  { code: 'FC3S-AP', name: 'Mazda RX-7 FC3S PANDEM WIDEBODY', marque: 'Mazda', mfr: 'APlastics', aesthetic: 'Pandem / Rocket Bunny', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/271751916_5092843594072747_8645457180854163462_n.jpg?v=1706119290' },
+  { code: 'AD-HB20', name: 'Mazda RX-3 Wagon PANDEM Body Set Mad Mike D1GP', marque: 'Mazda', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/Rx3-Wagon-01-1467x733.jpg?v=1739215295' },
+  { code: 'AD-HB13B', name: 'Rocket Bunny FD3S RX-7 Mazda Body 200mm', marque: 'Mazda', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/i-img1200x900-1683355203cldwvf618090.jpg?v=1706328847' },
+  { code: '720014', name: 'Mazda Miata NA6 NA8 MX5 Eunos Roadster Drift Body', marque: 'Mazda', mfr: 'MST', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/202201141055491a.jpg?v=1735315849' },
+  { code: 'PAB-3198CV', name: 'Carbon Version Mazda RX-7 FD3S BN-Sport BLS Luxury Sports Body Set', marque: 'Mazda', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '1990s', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/FD_700x700.jpg?v=1766909439' },
+  { code: 'R31W426', name: 'MAZDA MIATA MX5 ND PANDEM SWB Body', marque: 'Mazda', mfr: 'R31World', aesthetic: 'Pandem / Rocket Bunny', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/r31w426-2_700x700.jpg?v=1763167416' },
+  { code: '51270', name: 'Mazda RX-7 FD3S Spirit R Body Set', marque: 'Mazda', mfr: 'Tamiya', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/gallery_58388_700x700.jpg?v=1714194328' },
+  { code: 'E500', name: 'Mercedes Benz E500 w124 v2 Body Set', marque: 'Mercedes', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/262478484_434469871478859_4327530585591763063_n.jpg?v=1706119249' },
+  { code: 'QRC-190E', name: 'Mercedes Benz 190E Cosworth Body Shell', marque: 'Mercedes', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Tamiya-Mercedes-190E-2-5-Evo-II-TT01.jpg?v=1714415365' },
+  { code: 'QRC-130', name: 'Classic 67-71 MINI COOPER VINTAGE Body Shell', marque: 'Mini', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/download_9fdadd19-a9eb-4059-a858-84ffdd1ca6af.jpg?v=1714415353' },
+  { code: '720025', name: 'Mitsubishi EVO V LanEvo 5 Lancer Evolution CP9A Drift Body', marque: 'Mitsubishi', mfr: 'MST', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/EVOV-1W600.jpg?v=1738289431' },
+  { code: 'PABG-3062', name: 'Mitsubishi Starion Dodge Conquest Body Set', marque: 'Mitsubishi', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-150.jpg?v=1713490208' },
+  { code: 'TAF44000', name: 'MAX RACING NISSAN S13 SILVIA PS13 Body Set', marque: 'Nissan', mfr: '24K / RC ARLOS', aesthetic: 'Tuner Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/24KRC_24K4400_12-700x700_png_700x700.webp?v=1771727334' },
+  { code: 'TAF11000', name: 'Nissan 350z Fairlady Z Z33 BRIAN Drift Body Shell LIMITED', marque: 'Nissan', mfr: '24K / RC ARLOS', aesthetic: 'Driver Spec', era: 'Modern (2010s+)', tags: ['limited'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_4777_418e136f-144a-4a83-9c08-21af95ad9d62_700x700.jpg?v=1706123594' },
+  { code: 'RC-AF-NS14.9', name: 'Nissan S14.9 S14 Chassis with S15 front/rear Drift Body Shell AF-NS14.9', marque: 'Nissan', mfr: '24K / RC ARLOS', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Arlos-Silvia-S14.9-1-1100x1100-1.png?v=1706118757' },
+  { code: 'TAF31000', name: 'SEIJI S14 NISSAN 240SX SILVIA Drift Body Shell', marque: 'Nissan', mfr: '24K / RC ARLOS', aesthetic: 'Driver Spec', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/AF-SKS14_1_700x700.jpg?v=1706122938' },
+  { code: '67193', name: 'Nissan 300ZX Fairlady Z32 Body Set + Light Bucket Kit', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/67193photo003_700x700.jpg?v=1726699428' },
+  { code: '67149', name: 'Nissan Sil80 Sileighty Body Set & Wing Body', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66149-1_700x700.jpg?v=1706105723' },
+  { code: '67175', name: 'Nissan Silvia Coupe S13 w Pop Ups One-Via Zenki Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66175photo001_700x700.jpg?v=1706106062' },
+  { code: '67142', name: 'Nissan Silvia S13 195mm Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/40105_photo01_700x700.jpg?v=1706330304' },
+  { code: '67174', name: 'Nissan Silvia S13 ROCKET BUNNY V2 ADDICTION x ABC LIMITED', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: ['limited'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66174photo001_700x700.jpg?v=1706330331' },
+  { code: '67171', name: 'Nissan Silvia S14 ZENKI Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66171photo001_700x700.jpg?v=1706329564' },
+  { code: '67163', name: 'Nissan Skyline GT-R Hakosuka Racing Over Fender Kit Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'Widebody (Custom)', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66160photo001.jpg?v=1706117621' },
+  { code: '67132', name: 'Nissan Skyline GT-R Hakosuka w Fender Flares Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'Widebody (Custom)', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/180SX2.1.jpg?v=1706333946' },
+  { code: '90101', name: 'Nissan Skyline GT-R Kenmeri HT2000 KPGC110 Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/abc-hobby-nissan-skyline-ht2000-gt-r-kpgc110-kenme_2_700x700.webp?v=1739822597' },
+  { code: '67129', name: 'Nissan Skyline HT2000 KC210 Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SKYLINEJapan4_700x700.jpg?v=1764460604' },
+  { code: '67093', name: 'Nissan Skyline HT2000 KPGC10 GT-R Hakosuka w Fender Flares Body Set', marque: 'Nissan', mfr: 'ABC Hobby', aesthetic: 'Widebody (Custom)', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/abc-hobby-nissan-skyline-ht2000-gt-r-kpgc10-hakosu_700x700.webp?v=1769736716' },
+  { code: 'R34-AP', name: 'Nissan Skyline GTR BNR34 R34 GT-R Body Set', marque: 'Nissan', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/r34_700x700.jpg?v=1713509904' },
+  { code: 'AD011-6', name: 'Addiction ROCKET BUNNY Ver. 2 MINE for ABC S13', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/ad011-3.jpg?v=1706120430' },
+  { code: 'AD-RB2', name: 'NISSAN S13 Silvia PANDEM 241mm SWB REAL GRADE BODY', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/93053091_929581914158834_4345987727905259520_n.jpg?v=1706121288' },
+  { code: 'AD-HB9A', name: 'Nissan 180SX PANDEM V3 193mm REAL GRADE BODY', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/889-3L.jpg?v=1706120260' },
+  { code: 'AD-RB8A', name: 'Nissan 180SX PANDEM V3 193mm SWB REAL GRADE BODY', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/180v3.jpg?v=1706120054' },
+  { code: 'AD-HB12', name: 'Nissan 180SX Silvia S13 DMAX Widebody Body Set', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'DMAX', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/AD-HB12-3_700x700.jpg?v=1706326585' },
+  { code: 'AD-HB19V8', name: 'Nissan 240SX Silvia S13 + TAKA Naoki Nakamura 2024 V8 Livery Body Set', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/771063793_jpg_700x700.webp?v=1733256324' },
+  { code: 'AD-HB11', name: 'Nissan 240SX Silvia S13 DMAX Widebody Body Set', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'DMAX', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/298-3L_700x700.jpg?v=1706122523' },
+  { code: 'AD-HB19', name: 'Nissan 240SX Silvia S13 Naoki Nakamura 2024 Street Ver. Body Set', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/771063793_jpg_700x700.webp?v=1733256324' },
+  { code: 'AD-RB10', name: 'Nissan 400Z FAIRLADY PANDEM Widebody Body Set', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_6697_eb7796ae-9997-46ca-b34d-4e495e9f999e.jpg?v=1706328885' },
+  { code: 'AD-HB11-FUJIO', name: 'Nissan S13 Silvia D-MAX FUJIO LIMITED EDITION TAKA LIVERY', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: '1980s', tags: ['limited'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/fujio3.jpg?v=1716146022' },
+  { code: 'AD-TMAR15', name: 'Nissan S15 Silvia 2022 Naoki Nakamura D1 TMAR BODY SET', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/302535819_493531072779237_2960356560983135075_n_700x700.jpg?v=1706123241' },
+  { code: 'AD-ALIVE15', name: 'Nissan S15 Silvia Alive Hoon Body', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/826-3L.jpg?v=1706121746' },
+  { code: 'AD-HB10A', name: 'Nissan SILVIA S13 PANDEM V3 195mm Wide REAL GRADE BODY', marque: 'Nissan', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Screen-Shot-2022-05-20-at-9.24.28-PM.jpg?v=1706121303' },
+  { code: 'DL083', name: 'Nissan 180SX Type-X RPS13 Aero S13 Body Set', marque: 'Nissan', mfr: 'D-Like', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/DL083-1_700x700.jpg?v=1706104957' },
+  { code: 'SU-BODY-Z32', name: 'Nissan 300zx Z32 Fairlady Z Body Set', marque: 'Nissan', mfr: 'Exceed RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/exceed-z32-2_700x700.jpg?v=1706118152' },
+  { code: '160931', name: 'Aurimas \'Odi\' Bakchis NISSAN SILVIA S15 *PAINTED* Body Set 200mm', marque: 'Nissan', mfr: 'HPI', aesthetic: 'Driver Spec', era: '2000s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/160931_160931_01_800_600_700x700.jpg?v=1778128344' },
+  { code: '109385', name: 'Nissan 240SX S13 Silvia Rocket Bunny Widebody Dai Yoshihara 200mm Body Set', marque: 'Nissan', mfr: 'HPI', aesthetic: 'Driver Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/FullSizeRender_d303de3a-e72c-425d-a4b2-8cc8e28894ea_700x700.jpg?v=1756590840' },
+  { code: '7485', name: 'Nissan 350Z GT Race Fairlady 200mm z33 Body Set', marque: 'Nissan', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/7485_7485_01p_800_600_700x700.jpg?v=1743434669' },
+  { code: '17218', name: 'Nissan 350Z Greddy Fairlady 190mm z33 Body Set', marque: 'Nissan', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_5881_700x700.jpg?v=1706328642' },
+  { code: '103886', name: 'Nissan 350Z HANKOOK Fairlady 200mm z33 Body Set', marque: 'Nissan', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/103886_img_0619ahp_800_534_700x700.jpg?v=1743434531' },
+  { code: '48626', name: 'Nissan Skyline GTR R34 Body Set CLEAR', marque: 'Nissan', mfr: 'Killerbody', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/48644-3_470cd8ad-bd7f-4c9e-8e09-fee2ecdc7abe_700x700.jpg?v=1706117849' },
+  { code: '48646', name: 'PAINTED* Nissan Skyline GTR R34 Body Set', marque: 'Nissan', mfr: 'Killerbody', aesthetic: 'OEM / Stock', era: '1990s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/48646-4_700x700.jpg?v=1706117833' },
+  { code: '720026', name: 'Nissan Silvia S15 Rocket Bunny Body Set', marque: 'Nissan', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/mxs-533915mg_700x700.webp?v=1772161686' },
+  { code: '720026LB', name: 'PAINTED* Nissan Silvia S15 Light Blue Rocket Bunny Body Set', marque: 'Nissan', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: '2000s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/720026-1_700x700.jpg?v=1745991772' },
+  { code: '720026M', name: 'PAINTED* Nissan Silvia S15 Magenta Rocket Bunny Body Set', marque: 'Nissan', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: '2000s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/mxs-533915mg_700x700.webp?v=1772161686' },
+  { code: '720026MG', name: 'PAINTED* Nissan Silvia S15 Mint Green Rocket Bunny Body Set', marque: 'Nissan', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: '2000s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/mxs-533915mg_700x700.webp?v=1772161686' },
+  { code: 'PAB-3213CV', name: 'Carbon Version NISSAN Silvia S15 BLS BN-Sports Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '2000s', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG_1983_10b016ee-f214-4346-9810-13aa42b7c20e_700x700.jpg?v=1765499437' },
+  { code: 'PAB-3207CV', name: 'Carbon Version NISSAN Skyline GT-R R35 BLS BN-Sports Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2010_700x700.jpg?v=1765499554' },
+  { code: 'FCB-195C', name: 'Carbon Version Nissan Silvia S15 Raijin THUNDER GOD Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '2000s', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2014_700x700.jpg?v=1765499372' },
+  { code: 'PAB-3224', name: 'HCR32 Nissan Skyline GT-R R32 Sedan BN SPORT 4-Door Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/hcr32-skyline-4dr-abomoon-01_700x700.jpg?v=1749578189' },
+  { code: 'PAB-3211', name: 'NISSAN SKYLINE KENMERI 2000GT-R KPGC110 CUSTOM Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/PAB-3211-7_700x700.jpg?v=1706329043' },
+  { code: 'PAB-3209', name: 'NISSAN Silvia S14 BLS BN-Sports Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/UNADJUSTEDNONRAW_thumb_63c7_700x700.jpg?v=1714417978' },
+  { code: 'PAB-3207', name: 'NISSAN Skyline GT-R R35 BLS BN-Sports Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2010_700x700.jpg?v=1765499554' },
+  { code: 'PAB-3227', name: 'Nissan 350z Fairlady Z33 Origin Labo DRIFT LINE Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/3227-1_700x700.webp?v=1761036111' },
+  { code: 'PAB-3220', name: 'Nissan Laurel C130 Butaketsu Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/c130-laurel-1_700x700.webp?v=1745534338' },
+  { code: 'PABG-3064', name: 'Nissan Laurel C34 STREET Body Set 197mm', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/c34laurel_20230701_0935-17_700x700.webp?v=1714412008' },
+  { code: 'PAB-3226', name: 'Nissan RPS13 180SX Kouki TOHOKU STYLE Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Tuner Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/rps13-180sx-tohoku-01_700x700.webp?v=1766517727' },
+  { code: 'PAB-3151', name: 'Nissan S13 Silvia Coupe 240sx Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-151_700x700.jpg?v=1706104749' },
+  { code: 'PAB-3148', name: 'Nissan S15 Silvia Coupe Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-148_700x700.jpg?v=1706104689' },
+  { code: 'PAB-3232', name: 'Nissan Skyline BNR32 Coupe 2Dr R32 Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/bnr32-skyline-gtr-02_700x700.jpg?v=1774540052' },
+  { code: 'PAB-3238', name: 'Nissan Skyline ER34 4dr Sedan R34 Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/er34-skyline-4dr-03Large_700x700.jpg?v=1772043745' },
+  { code: 'PAB-3134', name: 'Nissan Skyline GT-R R32 Sedan BN SPORT 4-Door Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-134_700x700.jpg?v=1713509925' },
+  { code: 'PAB-3130', name: 'Nissan Skyline GT-R R33 Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-130_700x700.jpg?v=1713509913' },
+  { code: 'PAB-3166', name: 'Nissan Skyline GTR R33 BN Sports Edition Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/PAB-166-0.jpg?v=1706104790' },
+  { code: 'QRC-R33', name: 'NISSAN SKYLINE GTR BNR33 R33 Body Shell', marque: 'Nissan', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/download-1-2_700x700.jpg?v=1706120954' },
+  { code: 'QRC-134', name: 'Nissan STAGEA R34 GTR Skyline GT-R WAGON 190mm Body Shell', marque: 'Nissan', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/860624_8fd46227fbc844eca714abb0ae264203_mv2_81cf9f41-b3ef-4c90-9607-e5a73a6ccbe0_700x700.jpg?v=1771055769' },
+  { code: 'QRC-534', name: 'Nissan STAGEA R34 GTR Skyline GT-R WAGON 200mm Body Shell', marque: 'Nissan', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/860624_3330cabd8992438aa7febe39c82a7706_mv2_700x700.jpg?v=1770859803' },
+  { code: 'R31W438', name: 'D-MAX NISSAN S15 SILVIA DRIFT SPEC Body', marque: 'Nissan', mfr: 'R31World', aesthetic: 'DMAX', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/R31W438-1_700x700.webp?v=1762324418' },
+  { code: 'R31W425', name: 'D-MAX NISSAN S15 SILVIA RACING SPEC Body', marque: 'Nissan', mfr: 'R31World', aesthetic: 'DMAX', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/12011444_61a70badeec12_700x700.jpg?v=1706121940' },
+  { code: 'R31W437', name: 'Nissan Skyline GTR R32 SKYLINE ACTIVE CARBON-R', marque: 'Nissan', mfr: 'Shibata', aesthetic: 'OEM / Stock', era: '1980s', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/R31W437-1.jpg?v=1706329297' },
+  { code: 'TT-7707B', name: 'B-STOCK Nissan Skyline GTR KPGC110 Liberty Walk Edition Body Set', marque: 'Nissan', mfr: 'Tetsujin', aesthetic: 'Liberty Walk', era: '1980s', tags: ['b-stock'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/A619_I1_700x700.jpg?v=1706107532' },
+  { code: 'TT-8211B', name: 'B-STOCK Nissan Skyline R35 Liberty Walk Body Set', marque: 'Nissan', mfr: 'Tetsujin', aesthetic: 'Liberty Walk', era: 'Modern (2010s+)', tags: ['b-stock'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/TT-7555_700x700.jpg?v=1706103748' },
+  { code: 'SD-PS13BB', name: 'Nissan S13 Silvia Coupe Drift X-Treme Body Set', marque: 'Nissan', mfr: 'Yokomo', aesthetic: 'Tuner Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/SD-PS13BS_1_700x700.jpg?v=1706103275' },
+  { code: 'SD-RS13SPB', name: 'Ogino-ya Nissan Sil-Eighty Sayaka Special Drift Body Set SIL80 Sileighty Clear Lexan', marque: 'Nissan', mfr: 'Yokomo', aesthetic: 'Driver Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-RS13SPB_01_700x700.jpg?v=1777309126' },
+  { code: 'SD-MS15BLB', name: 'Painted* D1GP Mercury Sayaka Nissan S15 Silvia BODY SET', marque: 'Nissan', mfr: 'Yokomo', aesthetic: 'Driver Spec', era: '2000s', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/sd-ms15b_700x700.jpg?v=1776728277' },
+  { code: 'PLYM-ROAD', name: 'Plymouth Roadrunner Classic Muscle Body Set', marque: 'Plymouth', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/241283914_436259517815089_9198457705572383429_n.jpg?v=1706122376' },
+  { code: 'QRC-FIREBIRD', name: '1971 PONTIAC FIREBIRD Body Shell', marque: 'Pontiac', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/71fb.jpg?v=1706121024' },
+  { code: 'PAB-3210', name: 'RWB 993 Porsche RAUH-Welt BEGRIFF Body Shell', marque: 'Porsche', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/pai814-02.jpg?v=1739330346' },
+  { code: 'QRC-PORSCHE82', name: '82 PORSCHE WIDEBODY WITH FLARES Body Shell', marque: 'Porsche', mfr: 'Quality RC', aesthetic: 'Widebody (Custom)', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/UNADJUSTEDNONRAW_thumb_68e5.jpg?v=1706123871' },
+  { code: '120146', name: 'Michele Abbate Grrracing Scion FRS *PAINTED* Body Set', marque: 'Scion', mfr: 'HPI', aesthetic: 'Driver Spec', era: 'Other', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/120146_120146_01n_800_600_700x700.jpg?v=1753815070' },
+  { code: '120196', name: 'DAI YOSHIHARA TURN14 FORMULA D Subaru BRZ Rocket Bunny *PAINTED* Body Set', marque: 'Subaru', mfr: 'HPI', aesthetic: 'Driver Spec', era: 'Other', tags: ['painted'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/HPI120096.jpg?v=1706119575' },
+  { code: 'HPI115332', name: 'Fatlace x HPI Subaru BRZ Rocket Bunny CLEAR Body Set', marque: 'Subaru', mfr: 'HPI', aesthetic: 'Pandem / Rocket Bunny', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/hpixfatlace_brz_3.jpg?v=1706124192' },
+  { code: '17525', name: 'PROVA SUBARU IMPREZA HAWKEYE Body Set', marque: 'Subaru', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/17525-1.jpg?v=1706326485' },
+  { code: 'QRC-SUBYBLOB', name: '2004 Subaru Impreza STI BLOB Eye Body Shell Rally 555', marque: 'Subaru', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/7a40b8ac620225a78b1f58b408a3f97c.jpg?v=1714415344' },
+  { code: 'QRC-SUBYHAWK', name: 'Subaru Impreza STI Hawkeye Body Shell Rally 555', marque: 'Subaru', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/suby.jpg?v=1706119583' },
+  { code: '51593', name: 'Subaru WRX STI NBR Challenge 2018 Body Set', marque: 'Subaru', mfr: 'Tamiya', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_4576.jpg?v=1706327120' },
+  { code: 'TESLA', name: 'TESLA MODEL 3 BODY SET', marque: 'Tesla', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_2696.jpg?v=1706331442' },
+  { code: 'TAF30000', name: 'TOYOTA SUPRA JZA80 A80 ROCKET BUNNY WIDEBODY Drift Body Shell', marque: 'Toyota', mfr: '24K / RC ARLOS', aesthetic: 'Pandem / Rocket Bunny', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/taf30000_700x700.webp?v=1775929960' },
+  { code: 'TAF14000', name: 'Toyota AE86 w J Run Wideboy Drift Body Shell', marque: 'Toyota', mfr: '24K / RC ARLOS', aesthetic: 'Driver Spec', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/j-run-wide-body-kit-for-toyota-ae86-trueno-a19845-1100x1100_png_700x700.webp?v=1774421262' },
+  { code: 'TAF12000', name: 'Toyota LBWK GR Supra A90 (J29) Drift Body Shell', marque: 'Toyota', mfr: '24K / RC ARLOS', aesthetic: 'Liberty Walk', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/24KRC_24K1200_3-1100x1100_png_700x700.webp?v=1774027803' },
+  { code: 'TAF90000', name: 'Toyota YARIS WIDEBODY GR GXPA16 Drift Body Shell', marque: 'Toyota', mfr: '24K / RC ARLOS', aesthetic: 'Widebody (Custom)', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/24KRCToyotaYarisGR110ClearBodyShellAF-HSYGR_1_700x700.webp?v=1775929658' },
+  { code: '66096', name: 'Toyota Supra A70 86-93 Body Set', marque: 'Toyota', mfr: 'ABC Hobby', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/66096-1_700x700.jpg?v=1706105731' },
+  { code: 'AP-TCM', name: 'TOYOTA CAMRY TRD BODY SET', marque: 'Toyota', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_6554_1-1000x1000-1.jpg?v=1706328367' },
+  { code: 'GRZ', name: 'Toyota GR86 BRZ FRS 2022 Model Body Set', marque: 'Toyota', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_2413-1300x867-1.jpg?v=1706119244' },
+  { code: 'GR86-AP', name: 'Toyota GR86 BRZ FRS PANDEM WIDEBODY Body Set', marque: 'Toyota', mfr: 'APlastics', aesthetic: 'Pandem / Rocket Bunny', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/286036453_1686869948332916_4795829009828637435_n-1000x1000-1.jpg?v=1706123568' },
+  { code: 'PREVIA', name: 'Toyota Previa ESTIMA XR10 Body Set', marque: 'Toyota', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/IMG_1489.jpg?v=1706122207' },
+  { code: 'A80', name: 'Toyota Supra A80 MARK 4 Body Set 200mm', marque: 'Toyota', mfr: 'APlastics', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/17539__mg_4915ahp_800_600_700x700.jpg?v=1778129173' },
+  { code: 'AD-RB9', name: 'TOYOTA GR86 GR PANDEM Widebody 258mm WB REAL GRADE BODY', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/GR86Large.jpg?v=1726857097' },
+  { code: 'AD-RB17', name: 'TOYOTA GR86 Naoki Nakamura Street Ver.', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Driver Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-4070_700x700.jpg?v=1776024371' },
+  { code: 'AD-RB12', name: 'TOYOTA LEVIN AE86 240mm Short Wheelbase REAL GRADE BODY SWB', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/b256905.jpg?v=1743032831' },
+  { code: 'AD-RB1A', name: 'TOYOTA LEVIN AE86 PANDEM 240mm SWB REAL GRADE BODY', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Pandem / Rocket Bunny', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/image-1_0146ed1a-2977-41f7-8213-2cbe5698cb32.jpg?v=1706121292' },
+  { code: 'AD-HB8A', name: 'Toyota A90 Supra GR HYCADE Drift BODY', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Tuner Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Screen-Shot-2022-01-24-at-3.29.06-PM.png?v=1706119594' },
+  { code: 'AD-RB7', name: 'Toyota A90 Supra GR HYCADE SWB BODY', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Tuner Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/toyota-supra-goes-full-supercar-jdm-batmobile-widebody-rendering-156940_1.jpg?v=1714708871' },
+  { code: 'AD-RB16', name: 'Toyota Supra JZA80 BOMEX Widebody Body Set A80', marque: 'Toyota', mfr: 'Addiction RC', aesthetic: 'Tuner Spec', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/RB16-2_700x700.jpg?v=1754934493' },
+  { code: '7466', name: 'TOYOTA MR-S GT BODY 200mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/7466_7466_01p_800_600_700x700.jpg?v=1767168626' },
+  { code: '17539', name: 'TOYOTA SUPRA JZA80 A80 BODY 200mm Body', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/17539__mg_4915ahp_800_600_700x700.jpg?v=1778129173' },
+  { code: '30729', name: 'Toyota AE86 Levin Coupe 2DR Corolla 190mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/30729_img_8720p_800_600_700x700.jpg?v=1755555197' },
+  { code: '17214', name: 'Toyota AE86 Levin Hatchback 3DR Corolla 190mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/17214_17214_01p-1p_800_600_700x700.jpg?v=1755555032' },
+  { code: '105017', name: 'Toyota AE86 Trueno Coupe Corolla 190mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/105017_105017_01p_800_600_700x700.jpg?v=1755554823' },
+  { code: '17209', name: 'Toyota AE86 Trueno Hatchback 3DR Corolla 190mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/17209_17209_ah_800_600_700x700.jpg?v=1755554906' },
+  { code: '160797', name: 'Toyota GT86 FRS 200mm Body Set', marque: 'Toyota', mfr: 'HPI', aesthetic: 'OEM / Stock', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/160797_160797_01_800_534_700x700.jpg?v=1755555330' },
+  { code: '17524', name: 'Vertex Ridge Toyota Soarer SC300 SC400 JZZ30 Body Set 200mm w Wing', marque: 'Toyota', mfr: 'HPI', aesthetic: 'Tuner Spec', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/17524_17524_01pp_800_534_700x700.jpg?v=1766185952' },
+  { code: '48582', name: 'TOYOTA 86 SUBARU BRZ Widebody Body Set', marque: 'Toyota', mfr: 'Killerbody', aesthetic: 'Widebody (Custom)', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Untitled00402.webp?v=1713543728' },
+  { code: '86LB', name: 'Toyota FRS BRZ 86RB Rocket Bunny Widebody Drift Body', marque: 'Toyota', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: 'Other', tags: [], imageUrl: '' },
+  { code: '720020', name: 'Toyota SUPRA A90 Rocket Bunny Widebody Drift Body', marque: 'Toyota', mfr: 'MST', aesthetic: 'Pandem / Rocket Bunny', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/202112210312261a.jpg?v=1713543831' },
+  { code: 'OD2370', name: 'TOYOTA JZX100 Mark2 Weld Hyakushiki Gogouki Decal Set', marque: 'Toyota', mfr: 'Overdose', aesthetic: 'Tuner Spec', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/OD2370-3.jpg?v=1706329228' },
+  { code: 'PAB-3218CV', name: 'Carbon Version Toyota GR86 FRS BRZ BLS BN Sport Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: ['carbon'], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2006_700x700.jpg?v=1765500074' },
+  { code: 'PAB-3206', name: 'TOYOTA PRIUS ZVW50 Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/50prius_EF_BC_881_EF_BC_89_700x700.jpg?v=1706118976' },
+  { code: 'PAB-3229', name: 'Toyota Corolla KE70 Sedan Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/corolla-ke70-28Large_700x700.jpg?v=1769655935' },
+  { code: 'PAB-3127', name: 'Toyota Corolla KE70 Sedan Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/PAB-127-1_700x700.jpg?v=1706105769' },
+  { code: 'PAB-3225', name: 'Toyota Cresta JZX100 BN Sports BLS Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/toyota-cresta-jzx100bls-bn-sports-01_700x700.jpg?v=1754587013' },
+  { code: 'PABG-3063', name: 'Toyota Mark II JZX100 TRD STREET Body Set 198mm', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/100mark2_20230630_1734-1-4.webp?v=1706330230' },
+  { code: 'PAB-3178', name: 'Toyota Sprinter Trueno Hatchback AE86 Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/AE86-TRUENO-3DR_5_700x700.jpg?v=1714412031' },
+  { code: 'PAB-3208', name: 'Toyota TUNDRA Pickup Truck honey-D Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'Tuner Spec', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/tagu-main_700x700.jpg?v=1706121047' },
+  { code: 'QRC-054', name: 'Toyota A80 Mark IV Supra Body Shell', marque: 'Toyota', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/tam47433.jpg?v=1714415391' },
+  { code: 'QRC-316', name: 'Toyota AE86 Corolla GTS TRUENO w FLARES INITIAL-D 3DR Body Shell', marque: 'Toyota', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/860624_53dc341f6b4948ae94efbc571ffd47f7_mv2-1.jpg?v=1714415387' },
+  { code: 'DB-WT90', name: 'Toyota A90 Supra Wein\'s Toyota Kanagawa x OreDa Racing Body Set', marque: 'Toyota', mfr: 'Reve D', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG_0027_700x700.webp?v=1761032226' },
+  { code: 'R31W440', name: 'SHIBATA GR86 BASE RC Drift Body 200mm wide', marque: 'Toyota', mfr: 'Shibata', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/R31W440_700x700.webp?v=1767166814' },
+  { code: '51666', name: 'Toyota GR86 Toyota 86 ZD8 Subaru BRZ Body Set', marque: 'Toyota', mfr: 'Tamiya', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/77668580ed1585acbc18cf3b17790b3d.jpg?v=1706122931' },
+  { code: 'SD-AE86L2B', name: 'TOYOTA Corolla Levin (AE86) 2-Door Body Set Clear Lexan', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-AE86L2B_700x700.jpg?v=1776268821' },
+  { code: 'SD-AE86L3B', name: 'TOYOTA Corolla Levin (AE86) 3-Door Body Set Clear Lexan', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-AE86L3B_700x700.jpg?v=1776269025' },
+  { code: 'SD-AE86T2B', name: 'TOYOTA Sprinter Trueno (AE86) 2-Door Body Set Clear Lexan', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-AE86T2B_700x700.jpg?v=1776268955' },
+  { code: 'SD-AE86T3B', name: 'TOYOTA Sprinter Trueno (AE86) 3-Door Body Set Clear Lexan', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-AE86T3B_700x700.jpg?v=1776268955' },
+  { code: 'SD-GR86B', name: 'Toyota GR86 Body Set', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/SD-GR86B_01.jpg?v=1714413523' },
+  { code: 'QRC-107', name: 'VW BEETLE BUG Body Shell', marque: 'VW', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/058ef3b92d45829e3615aa931a783333.jpg?v=1706123806' },
 ];
 
 // === STATE ===
 const state = {
   user: '',
   picks: { gavin: new Set(), shane: new Set() },
-  filters: { marque: '', aesthetic: '', view: 'all' },
+  filters: { marque: '', mfr: '', aesthetic: '', era: '', view: 'all', search: '' },
 };
 
 const STORAGE_KEY = 'dopamine-moodboard-v1';
@@ -693,22 +1069,33 @@ function makeShareUrl() {
   return `${base}#u=${state.user}&p=${userPicks.join('.')}`;
 }
 
+// === IMAGE FALLBACK ===
+function handleImgError(img) {
+  const parent = img.parentElement;
+  parent.innerHTML = '<div class="card-image-fallback">image unavailable</div>';
+}
+
 // === RENDERING ===
 function aestheticClass(aes) {
-  if (aes === 'Origin Labo') return 'aesthetic-origin';
-  if (aes === 'BN Sports') return 'aesthetic-bn';
-  if (aes === 'Pandem') return 'aesthetic-pandem';
-  if (aes === 'OEM+') return 'aesthetic-oem';
-  return '';
+  // V3: map aesthetic name to CSS class via dash transform
+  return 'aes-' + aes.replace(/[\s\/\(\)]+/g, '-').replace(/--+/g, '-').replace(/-$/, '');
 }
 
 function matchesFilters(shell) {
   const f = state.filters;
   if (f.marque && shell.marque !== f.marque) return false;
+  if (f.mfr && shell.mfr !== f.mfr) return false;
   if (f.aesthetic && shell.aesthetic !== f.aesthetic) return false;
+  if (f.era && shell.era !== f.era) return false;
   if (f.view === 'picked') {
     if (!state.user) return false;
     if (!state.picks[state.user].has(shell.code)) return false;
+  }
+  if (f.view === 'shortlist' && !shell.shortlisted) return false;
+  if (f.search) {
+    const q = f.search.toLowerCase();
+    const hay = (shell.code + ' ' + shell.name + ' ' + shell.marque + ' ' + shell.mfr + ' ' + shell.aesthetic + ' ' + shell.era).toLowerCase();
+    if (!hay.includes(q)) return false;
   }
   return true;
 }
@@ -717,6 +1104,8 @@ function renderGrid() {
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
   const filtered = SHELLS.filter(matchesFilters);
+  const rc = document.getElementById('resultCount');
+  if (rc) rc.textContent = filtered.length + ' of ' + SHELLS.length;
 
   if (filtered.length === 0) {
     const empty = document.createElement('div');
@@ -737,8 +1126,14 @@ function renderGrid() {
     const card = document.createElement('div');
     card.className = `card ${picked ? 'picked' : ''} ${shell.shortlisted ? 'shortlisted' : ''}`;
     card.dataset.code = shell.code;
+    const imgHtml = shell.imageUrl
+      ? `<div class="card-image"><img src="${shell.imageUrl}" alt="${shell.name}" loading="lazy" onerror="handleImgError(this)"></div>`
+      : `<div class="card-image"><div class="card-image-fallback">no image</div></div>`;
+    const badges = (shell.tags || []).map(t => `<span class="tag-pill tag-${t}">${t}</span>`).join('');
     card.innerHTML = `
       <div class="card-pick">${picked ? '✓' : ''}</div>
+      ${badges ? `<div class="card-badges">${badges}</div>` : ''}
+      ${imgHtml}
       <div class="card-code">${shell.code}</div>
       <div class="card-name">${shell.name}</div>
       ${shell.note ? `<div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">${shell.note}</div>` : ''}
@@ -916,6 +1311,29 @@ function setup() {
       const value = btn.dataset.value;
       setFilter(group, value);
     });
+
+  // V3 additions: search + dropdowns
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    searchEl.addEventListener('input', (e) => {
+      state.filters.search = e.target.value.trim();
+      renderGrid();
+    });
+  }
+  const marqueSel = document.getElementById('marqueSelect');
+  if (marqueSel) {
+    marqueSel.addEventListener('change', (e) => {
+      state.filters.marque = e.target.value;
+      renderGrid();
+    });
+  }
+  const mfrSel = document.getElementById('mfrSelect');
+  if (mfrSel) {
+    mfrSel.addEventListener('change', (e) => {
+      state.filters.mfr = e.target.value;
+      renderGrid();
+    });
+  }
   });
 
   // action buttons
