@@ -169,6 +169,14 @@
     border-color: var(--accent);
   }
 
+  .filter-btn:focus-visible,
+  .btn:focus-visible,
+  .card-store-link:focus-visible,
+  .card-image:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   /* Grid */
   .grid {
     display: grid;
@@ -198,7 +206,6 @@
     gap: var(--space-sm);
     min-height: 152px;
     padding-top: var(--space-sm);
-    padding-top: var(--space-sm);
   }
 
   .card:hover {
@@ -209,28 +216,6 @@
   .card.picked {
     border-color: var(--accent);
     background: var(--surface-elevated);
-  }
-
-  .card-pick {
-    position: absolute;
-    top: var(--space-sm);
-    right: var(--space-sm);
-    width: 22px;
-    height: 22px;
-    border: 1px solid var(--border-strong);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    color: transparent;
-    transition: all 0.1s ease;
-  }
-
-  .card.picked .card-pick {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
   }
 
   .card-code {
@@ -484,36 +469,6 @@
     letter-spacing: 0.15em;
   }
 
-
-  /* Shell image */
-  .card-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: #0a0a0a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    margin-bottom: 4px;
-  }
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #fff;
-    transition: transform 0.2s ease;
-  }
-  .card:hover .card-image img {
-    transform: scale(1.03);
-  }
-  .card-image-fallback {
-    color: var(--text-tertiary);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-  }
-
   @media (max-width: 720px) {
     .header { padding: var(--space-md); }
     .filters { padding: var(--space-md); gap: var(--space-md); }
@@ -545,85 +500,6 @@
   .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
   .card { position: relative; }
 
-  /* Shortlist star indicator */
-  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
-
-  /* Aesthetic colour tags — expanded set */
-  .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
-  .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
-  .tag.aes-Pandem-Rocket-Bunny    { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
-  .tag.aes-Liberty-Walk           { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
-  .tag.aes-DMAX                   { color: #34d399; border-color: rgba(52, 211, 153, 0.4); }
-  .tag.aes-Driver-Spec            { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
-  .tag.aes-Tuner-Spec             { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
-  .tag.aes-Widebody-Custom        { color: #67e8f9; border-color: rgba(103, 232, 249, 0.4); }
-  .tag.aes-OEM-Stock              { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
-  .tag.aes-VIP-Bippu              { color: #d4d4d8; border-color: rgba(212, 212, 216, 0.4); }
-
-
-  /* V3 expanded filter UI */
-  .filters { padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); border-bottom: 1px solid var(--border); }
-  .filter-row { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: flex-start; }
-  .filter-row-top { gap: var(--space-md); }
-  .filter-search { flex: 1; min-width: 240px; }
-  .filter-search input { width: 100%; background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; }
-  .filter-search input:focus { border-color: var(--accent); }
-  .filters select { background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; min-width: 200px; max-width: 280px; cursor: pointer; }
-  .filters select:focus { border-color: var(--accent); }
-  .filter-count #resultCount { color: var(--accent); font-weight: 500; font-size: 13px; }
-
-  /* Tag pills for painted/carbon/b-stock/limited */
-  .tag-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; }
-  .tag-painted { background: rgba(248, 113, 113, 0.15); color: #f87171; }
-  .tag-carbon  { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
-  .tag-b-stock { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
-  .tag-limited { background: rgba(250, 204, 21, 0.15); color: var(--accent); }
-  .tag-preorder { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
-
-  .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
-  .card { position: relative; }
-
-  /* Shortlist star indicator */
-  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
-
-  /* Aesthetic colour tags — expanded set */
-  .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
-  .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
-  .tag.aes-Pandem-Rocket-Bunny    { color: #f87171; border-color: rgba(248, 113, 113, 0.4); }
-  .tag.aes-Liberty-Walk           { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
-  .tag.aes-DMAX                   { color: #34d399; border-color: rgba(52, 211, 153, 0.4); }
-  .tag.aes-Driver-Spec            { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
-  .tag.aes-Tuner-Spec             { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
-  .tag.aes-Widebody-Custom        { color: #67e8f9; border-color: rgba(103, 232, 249, 0.4); }
-  .tag.aes-OEM-Stock              { color: #94a3b8; border-color: rgba(148, 163, 184, 0.4); }
-  .tag.aes-VIP-Bippu              { color: #d4d4d8; border-color: rgba(212, 212, 216, 0.4); }
-
-
-  /* V3 expanded filter UI */
-  .filters { padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; gap: var(--space-md); border-bottom: 1px solid var(--border); }
-  .filter-row { display: flex; gap: var(--space-lg); flex-wrap: wrap; align-items: flex-start; }
-  .filter-row-top { gap: var(--space-md); }
-  .filter-search { flex: 1; min-width: 240px; }
-  .filter-search input { width: 100%; background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; }
-  .filter-search input:focus { border-color: var(--accent); }
-  .filters select { background: var(--surface-elevated); border: 1px solid var(--border-strong); color: var(--text-primary); font-family: inherit; font-size: 13px; padding: 7px 12px; outline: none; min-width: 200px; max-width: 280px; cursor: pointer; }
-  .filters select:focus { border-color: var(--accent); }
-  .filter-count #resultCount { color: var(--accent); font-weight: 500; font-size: 13px; }
-
-  /* Tag pills for painted/carbon/b-stock/limited */
-  .tag-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 5px; border-radius: 2px; text-transform: uppercase; }
-  .tag-painted { background: rgba(248, 113, 113, 0.15); color: #f87171; }
-  .tag-carbon  { background: rgba(168, 162, 158, 0.15); color: #a8a29e; }
-  .tag-b-stock { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
-  .tag-limited { background: rgba(250, 204, 21, 0.15); color: var(--accent); }
-  .tag-preorder { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
-
-  .card-badges { position: absolute; top: 6px; left: 6px; display: flex; flex-direction: column; gap: 3px; z-index: 2; }
-  .card { position: relative; }
-
-  /* Shortlist star indicator */
-  .card.shortlisted::before { content: '★'; position: absolute; top: 6px; right: 28px; color: var(--accent); font-size: 14px; z-index: 2; }
-
   /* Aesthetic colour tags — expanded set */
   .tag.aes-Origin-Labo            { color: #FACC15; border-color: rgba(250, 204, 21, 0.4); }
   .tag.aes-BN-Sports              { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
@@ -638,50 +514,33 @@
 
   /* === V4: star-toggle pick, image-click lightbox, store-link === */
 
-  /* The card itself no longer toggles picks — image, star, and store link each have their own click target. */
+  /* Card has discrete click targets (star, image, store link); the card itself is not clickable. */
   .card { cursor: default; }
-  .card-image { cursor: zoom-in; position: relative; }
-  .card-image::after {
-    content: '⤢';
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 22px; height: 22px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.6);
-    color: var(--text-secondary);
-    font-size: 13px;
-    opacity: 0;
-    transition: opacity 0.15s ease;
-    pointer-events: none;
-  }
-  .card:hover .card-image::after { opacity: 1; }
+  .card-image { cursor: zoom-in; }
 
-  /* Override the legacy circle-checkbox `.card-pick` to be a clickable pick-star.
-     `!important` is used to win over the earlier rules without rewriting them. */
+  /* Pick star at top-right of card. */
   .card-pick {
-    width: 28px !important;
-    height: 28px !important;
-    border: none !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    color: var(--text-tertiary) !important;
-    font-size: 22px !important;
-    line-height: 1 !important;
-    cursor: pointer;
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
     padding: 0;
+    color: var(--text-tertiary);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
     z-index: 3;
     transition: color 0.1s ease, transform 0.1s ease;
   }
-  .card-pick:hover { color: var(--accent) !important; transform: scale(1.15); }
-  .card.picked .card-pick {
-    background: transparent !important;
-    color: var(--accent) !important;
-    border-color: transparent !important;
-  }
-
-  /* Disable the legacy shortlist ::before star — the text " ★ SHORTLIST" on the code is enough. */
-  .card.shortlisted::before { content: none !important; }
+  .card-pick:hover { color: var(--accent); transform: scale(1.15); }
+  .card-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .card.picked .card-pick { color: var(--accent); }
 
   /* Store-page link (bottom-right of card). */
   .card-store-link {
@@ -917,16 +776,15 @@
 
   <!-- Image lightbox -->
   <div class="lightbox-backdrop" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose" title="Close (Esc)">×</button>
+    <button class="lightbox-close" id="lightboxClose" title="Close (Esc)" aria-label="Close image preview">×</button>
     <img class="lightbox-img" id="lightboxImg" alt="">
     <div class="lightbox-meta"><span class="lightbox-code" id="lightboxCode"></span><span id="lightboxName"></span></div>
   </div>
 
 <script>
 // === DATA ===
-// 186 shells across 23 marques, 20 manufacturers, 10 aesthetics.
-// Sourced from supergdrift.com filtered catalogue (Lexus, Skyline, Toyota, Mazda, Nissan, Silvia, Supra, RX-3)
-// + 3 Pandora-only shortlisted shells. Categorisation is heuristic — adjust manually if needed.
+// Source of truth: shells_v3.json. This array is regenerated from it — do not hand-edit individual rows.
+// 186 shells across 23 marques, 20 manufacturers, 10 aesthetics. Categorisation is heuristic.
 const SHELLS = [
   { code: 'PAB-3199', name: 'Toyota 86 ZN6 BN-Sport BLS Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/B72D2996-75EB-4A9E-B207-614AD63DBD27_700x700.jpg?v=1713543886', productUrl: 'https://supergdrift.com/products/toyota-zn6-gt86-frs-brz-bn-sport-bls-luxury-sports-1-10-body-set-pandora-pab-3199', shortlisted: true },
   { code: 'PAB-3218', name: 'Toyota GR86 FRS BRZ BLS BN Sport Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2006_700x700.jpg?v=1765500074', productUrl: 'https://supergdrift.com/products/carbon-version-limited-edition-toyota-gr86-frs-brz-bls-bn-sport-1-10-body-set-pandora-pab-3218cv', shortlisted: true },
@@ -1171,11 +1029,24 @@ function parseSharedUrl(url) {
 
 function importFromHash() {
   const incoming = parseHash();
-  if (incoming && (incoming.user === 'gavin' || incoming.user === 'shane')) {
-    state.picks[incoming.user] = new Set(incoming.picks);
-    saveToStorage();
-    showNotice(`Loaded ${incoming.user[0].toUpperCase() + incoming.user.slice(1)}'s ${incoming.picks.length} picks from URL.`);
+  if (!incoming) return;
+  if (incoming.user !== 'gavin' && incoming.user !== 'shane') return;
+
+  const existing = state.picks[incoming.user];
+  const differs = existing.size !== incoming.picks.length || incoming.picks.some(p => !existing.has(p));
+  // Confirm before clobbering local picks for the currently-selected user.
+  // Importing the OTHER user's picks is part of the compare flow — silent.
+  if (state.user === incoming.user && existing.size > 0 && differs) {
+    const ok = confirm(
+      `This URL has ${incoming.picks.length} picks for ${incoming.user}, ` +
+      `but you have ${existing.size} saved locally. Replace them with the URL's picks?`
+    );
+    if (!ok) return;
   }
+  state.picks[incoming.user] = new Set(incoming.picks);
+  saveToStorage();
+  const name = incoming.user[0].toUpperCase() + incoming.user.slice(1);
+  showNotice(`Loaded ${name}'s ${incoming.picks.length} picks from URL.`);
 }
 
 function makeShareUrl() {
@@ -1183,6 +1054,12 @@ function makeShareUrl() {
   const userPicks = [...state.picks[state.user]];
   const base = window.location.href.split('#')[0];
   return `${base}#u=${state.user}&p=${userPicks.join('.')}`;
+}
+
+// === HTML ESCAPING ===
+const HTML_ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => HTML_ESC[c]);
 }
 
 // === IMAGE FALLBACK ===
@@ -1243,24 +1120,27 @@ function renderGrid() {
     card.className = `card ${picked ? 'picked' : ''} ${shell.shortlisted ? 'shortlisted' : ''}`;
     card.dataset.code = shell.code;
     const imgHtml = shell.imageUrl
-      ? `<div class="card-image" data-action="zoom"><img src="${shell.imageUrl}" alt="${shell.name}" loading="lazy" onerror="handleImgError(this)"></div>`
+      ? `<div class="card-image" data-action="zoom" role="button" tabindex="0" aria-label="Enlarge ${esc(shell.code)} image"><img src="${esc(shell.imageUrl)}" alt="${esc(shell.name)}" loading="lazy" onerror="handleImgError(this)"></div>`
       : `<div class="card-image"><div class="card-image-fallback">no image</div></div>`;
-    const badges = (shell.tags || []).map(t => `<span class="tag-pill tag-${t}">${t}</span>`).join('');
+    const badges = (shell.tags || [])
+      .map(t => `<span class="tag-pill tag-${esc(String(t).replace(/[^a-z0-9_-]/gi, ''))}">${esc(t)}</span>`)
+      .join('');
     const storeLink = shell.productUrl
-      ? `<a class="card-store-link" href="${shell.productUrl}" target="_blank" rel="noopener noreferrer" title="View on SuperG">↗</a>`
+      ? `<a class="card-store-link" href="${esc(shell.productUrl)}" target="_blank" rel="noopener noreferrer" title="View on SuperG" aria-label="View ${esc(shell.code)} on SuperG">↗</a>`
       : '';
+    const pickLabel = picked ? `Unpick ${shell.code}` : `Pick ${shell.code}`;
     card.innerHTML = `
-      <button type="button" class="card-pick" data-action="pick" title="${picked ? 'Picked — click to unpick' : 'Pick this shell'}">${picked ? '★' : '☆'}</button>
+      <button type="button" class="card-pick" data-action="pick" aria-pressed="${picked}" aria-label="${esc(pickLabel)}" title="${esc(pickLabel)}">${picked ? '★' : '☆'}</button>
       ${badges ? `<div class="card-badges">${badges}</div>` : ''}
       ${imgHtml}
-      <div class="card-code">${shell.code}</div>
-      <div class="card-name">${shell.name}</div>
-      ${shell.note ? `<div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">${shell.note}</div>` : ''}
+      <div class="card-code">${esc(shell.code)}</div>
+      <div class="card-name">${esc(shell.name)}</div>
+      ${shell.note ? `<div style="font-size: 11px; color: var(--text-tertiary); margin-top: 2px;">${esc(shell.note)}</div>` : ''}
       <div class="card-tags">
-        <span class="tag">${shell.marque}</span>
-        <span class="tag ${aestheticClass(shell.aesthetic)}">${shell.aesthetic}</span>
-        <span class="tag">${shell.era}</span>
-        <span class="tag">${shell.mfr}</span>
+        <span class="tag">${esc(shell.marque)}</span>
+        <span class="tag ${aestheticClass(shell.aesthetic)}">${esc(shell.aesthetic)}</span>
+        <span class="tag">${esc(shell.era)}</span>
+        <span class="tag">${esc(shell.mfr)}</span>
       </div>
       ${storeLink}
     `;
@@ -1275,6 +1155,13 @@ function renderGrid() {
       if (e.target.closest('[data-action="zoom"]')) {
         openLightbox(shell);
         return;
+      }
+    });
+    // Enter/Space on the focused image zone opens the lightbox.
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('[data-action="zoom"]')) {
+        e.preventDefault();
+        openLightbox(shell);
       }
     });
     grid.appendChild(card);
@@ -1465,6 +1352,7 @@ function setup() {
       const value = btn.dataset.value;
       setFilter(group, value);
     });
+  });
 
   // V3 additions: search + dropdowns
   const searchEl = document.getElementById('searchInput');
@@ -1488,7 +1376,6 @@ function setup() {
       renderGrid();
     });
   }
-  });
 
   // action buttons
   document.getElementById('saveBtn').addEventListener('click', onSave);
