@@ -611,7 +611,7 @@
     <div>
       <div class="wordmark">Dopamine Racing</div>
       <h1 class="title">Shell mood board</h1>
-      <p class="title-meta">Full SuperG catalogue — 186 shells across 23 marques and 20 manufacturers. Tap to pick. Search and filter to navigate.</p>
+      <p class="title-meta">Full SuperG catalogue — 192 shells across 23 marques and 20 manufacturers. Tap to pick. Search and filter to navigate.</p>
     </div>
     <div class="user-bar">
       <label for="user">Who are you</label>
@@ -784,7 +784,7 @@
 <script>
 // === DATA ===
 // Source of truth: shells_v3.json. This array is regenerated from it — do not hand-edit individual rows.
-// 186 shells across 23 marques, 20 manufacturers, 10 aesthetics. Categorisation is heuristic.
+// 192 shells across 23 marques, 20 manufacturers, 10 aesthetics. Categorisation is heuristic.
 const SHELLS = [
   { code: 'PAB-3199', name: 'Toyota 86 ZN6 BN-Sport BLS Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Other', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/B72D2996-75EB-4A9E-B207-614AD63DBD27_700x700.jpg?v=1713543886', productUrl: 'https://supergdrift.com/products/toyota-zn6-gt86-frs-brz-bn-sport-bls-luxury-sports-1-10-body-set-pandora-pab-3199', shortlisted: true },
   { code: 'PAB-3218', name: 'Toyota GR86 FRS BRZ BLS BN Sport Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'BN Sports', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/IMG-2006_700x700.jpg?v=1765500074', productUrl: 'https://supergdrift.com/products/carbon-version-limited-edition-toyota-gr86-frs-brz-bls-bn-sport-1-10-body-set-pandora-pab-3218cv', shortlisted: true },
@@ -972,6 +972,12 @@ const SHELLS = [
   { code: 'SD-AE86T3B', name: 'TOYOTA Sprinter Trueno (AE86) 3-Door Body Set Clear Lexan', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/files/SD-AE86T3B_700x700.jpg?v=1776268955', productUrl: 'https://supergdrift.com/products/toyota-sprinter-trueno-ae86-3-door-body-set-1-10-clear-lexan-yokomo-sd-ae86t3b' },
   { code: 'SD-GR86B', name: 'Toyota GR86 Body Set', marque: 'Toyota', mfr: 'Yokomo', aesthetic: 'OEM / Stock', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/SD-GR86B_01.jpg?v=1714413523', productUrl: 'https://supergdrift.com/products/toyota-gr86-1-10-body-set-yokomo-sd-gr86b' },
   { code: 'QRC-107', name: 'VW BEETLE BUG Body Shell', marque: 'VW', mfr: 'Quality RC', aesthetic: 'OEM / Stock', era: '60s / 70s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/058ef3b92d45829e3615aa931a783333.jpg?v=1706123806', productUrl: 'https://supergdrift.com/products/vw-beetle-bug-1-10-body-shell-quality-rc-qrc-107' },
+  { code: 'PAB-3194', name: 'Nissan 180SX Fujin WIND GOD Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '1980s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_3835.jpg?v=1714418152', productUrl: 'https://supergdrift.com/products/nissan-180sx-%E9%A2%A8%E7%A5%9E-fujin-wind-god-origin-labo-1-10-body-set-pandora-pab-3194' },
+  { code: 'PAB-3195', name: 'Nissan Silvia S15 Raijin THUNDER GOD Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/img_4240.jpg?v=1765499372', productUrl: 'https://supergdrift.com/products/nissan-silvia-s15-raijin-thunder-god-origin-labo-1-10-body-set-pandora-pab-3195' },
+  { code: 'PAB-3156', name: 'Toyota Chaser JZX100 Origin Labo Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '2000s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/CHASER-ORIGIN-5.jpg?v=1706116907', productUrl: 'https://supergdrift.com/products/toyota-chaser-jzx100-origin-labo-1-10-body-set-pandora-pab-3156' },
+  { code: 'PAB-3172', name: 'Nissan S14 Kouki 240SX Coupe Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/pab-172-4.jpg?v=1714412035', productUrl: 'https://supergdrift.com/products/nissan-s14-kouki-240sx-coupe-origin-labo-1-10-body-set-pandora-pab-3172' },
+  { code: 'PAB-3192', name: 'Nissan S14 Zenki 240SX Coupe Origin Labo Body Set', marque: 'Nissan', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: '1990s', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/Screen-Shot-2019-02-16-at-9.01.43-AM.png?v=1706110116', productUrl: 'https://supergdrift.com/products/nissan-s14-zenki-240sx-coupe-origin-labo-1-10-body-set-pandora-pab-3192' },
+  { code: 'PAB-3215', name: 'Toyota ZN6 GT86 FRS BRZ Origin Labo Body Set', marque: 'Toyota', mfr: 'Pandora RC', aesthetic: 'Origin Labo', era: 'Modern (2010s+)', tags: [], imageUrl: 'https://cdn.shopify.com/s/files/1/0683/9825/2271/products/originlabo-driftline86-14.webp?v=1710351717', productUrl: 'https://supergdrift.com/products/toyota-zn6-gt86-frs-brz-origin-labo-1-10-body-set-pandora-pab-3215' },
 ];
 
 // === STATE ===
